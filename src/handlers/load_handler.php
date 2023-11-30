@@ -44,10 +44,11 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      * @throws ezcPersistentObjectException
      *         if there is no such persistent class.
      *
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      * @param int $id
      *
-     * @return object
+     * @return T
      */
     public function load( $class, $id )
     {
@@ -65,10 +66,11 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      * This method is equivalent to {@link load()} except that it returns null
      * instead of throwing an exception if the object does not exist.
      *
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      * @param int $id
      *
-     * @return object|null
+     * @return ?T
      * @apichange This method will catch only exceptions which are related to
      *            the loading itself in future major releases.
      */
@@ -226,9 +228,10 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      *         ezcQuerySelect.
      *
      * @param ezcPersistentFindQuery|ezcQuerySelect $query
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      *
-     * @return array(object($class))
+     * @return T[]
      *
      * @apichange This method will only accept an instance of
      *            ezcPersistentFindQuery as the $query parameter in future
@@ -465,9 +468,10 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      * @throws ezcPersistentObjectException
      *         if there is no such persistent class.
      *
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      *
-     * @return ezcPersistentFindQuery
+     * @return ezcPersistentFindQuery<T>
      */
     public function createFindQuery( $class )
     {
@@ -490,25 +494,22 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
 
     /**
      * Returns a sub-select for the given $class to be used with $parentQuery.
-     *
      * This method creates an {@link ezcPersistentFindQuery} as a {@link
      * ezcQuerySubSelect} for the given $class. The returned query has already
      * set aliases for the properties of $class, but (in contrast to the query
      * returned by {@link createFindQuery()}) does not have the selection of all
      * properties set. You need to do
-     *
      * <code>
      * <?php
      * $subSelect = $session->subSelect( $existingSelectQuery, 'MyClass' );
      * $subSelect->select( 'myField' );
      * ?>
      * </code>
-     *
      * manually to select the fields you desire.
-     *
-     * @param ezcPersistentFindQuery $parentQuery
-     * @param string $class
-     * @return ezcQuerySubSelect
+     * @template T
+     * @param ezcPersistentFindQuery<T> $parentQuery
+     * @param class-string<T> $class
+     * @return ezcQuerySubSelect<T>
      */
     public function createSubQuery( ezcPersistentFindQuery $parentQuery, $class )
     {

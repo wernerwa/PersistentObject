@@ -77,8 +77,8 @@ class ezcPersistentObjectProperties extends ArrayObject
      * See SPL class ArrayObject.
      * Performs additional value checks on the array.
      *
-     * @param array(ezcPersistentObjectProperty) $array New properties array.
-     * @return void
+     * @param ezcPersistentObjectProperty[] $array New properties array.
+     * @return array
      */
     public function exchangeArray( $array )
     {

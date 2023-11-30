@@ -25,10 +25,9 @@
  */
 /**
  * Defines a persistent object id generator.
- *
  * For more information on how to use this class see
  * {@link ezcPersisentObjectIdProperty}
- *
+ * @template T
  * @version //autogen//
  * @package PersistentObject
  */
@@ -37,7 +36,7 @@ class ezcPersistentGeneratorDefinition extends ezcBaseStruct
     /**
      * The name of the class implementing the generator.
      *
-     * @var string
+     * @var class-string<T>
      */
     public $class;
 
@@ -55,7 +54,7 @@ class ezcPersistentGeneratorDefinition extends ezcBaseStruct
      * name of the class to load and $params contains a list of parameters
      * provided to the constructor of that class.
      *
-     * @param string $class
+     * @param class-string<T> $class
      * @param array $params
      */
     public function __construct( $class, array $params = array() )

@@ -57,7 +57,8 @@ class ezcPersistentRelationFindQuery extends ezcPersistentFindQuery
      * ezcPersistentSessionIdentityDecorator::find()}.
      *
      * @param ezcQuerySelect $query
-     * @param string $className
+     * @template T
+     * @param class-string<T> $className
      * @param string $relationSetName
      * @param ezcPersistentObject $relationSource
      */

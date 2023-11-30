@@ -35,9 +35,9 @@
  * @package PersistentObject
  * @version //autogen//
  * @mainclass
- *
+ * @template T
  * @property string $table Name of the database table to use.
- * @property string $class Class-name of the PersistentObject.
+ * @property class-string<T> $class Class-name of the PersistentObject.
  * @property ezcPersistentObjectIdProperty $idProperty Holds the identifier property.
  * @property array(string=>ezcPersistentObjectProperty) $properties
  *           The fields of the Persistent Object as an array of
@@ -48,7 +48,7 @@
  *           database column.
  * @property array(string=>ezcPersistentRelation) $relations
  *           Contains the relations of this object. An array indexed by class
- *           names of the related object, assigned to a instance of a class
+ *           names of the related object, assigned to an instance of a class
  *           derived from ezcPersistentRelation.
  */
 class ezcPersistentObjectDefinition
@@ -73,7 +73,7 @@ class ezcPersistentObjectDefinition
      * Constructs a new PersistentObjectDefinition.
      *
      * @param string $table The name of the database table to map to.
-     * @param string $class The name of the PHP class to map to.
+     * @param class-string<T> $class The name of the PHP class to map to.
      * @param array $properties The properties of the class. See {@link $properties}
      * @param array $relations The relations of the class. See {@link $relations}
      * @param ezcPersistentObjectIdProperty $idProperty The primary key of the class/table.
@@ -104,7 +104,7 @@ class ezcPersistentObjectDefinition
      * @return mixed Value of the property or null.
      *
      * @throws ezcBasePropertyNotFoundException
-     *         If the the desired property is not found.
+     *         If the desired property is not found.
      * @ignore
      */
     public function __get( $propertyName )

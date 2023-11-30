@@ -51,10 +51,11 @@ interface ezcPersistentSessionFoundation
      * @throws ezcPersistentObjectException
      *         if there is no such persistent class.
      *
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      * @param int $id
      *
-     * @return object
+     * @return T
      */
     function load( $class, $id );
 
@@ -64,10 +65,11 @@ interface ezcPersistentSessionFoundation
      * This method is equivalent to {@link load()} except that it returns null
      * instead of throwing an exception if the object does not exist.
      *
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      * @param int $id
      *
-     * @return object|null
+     * @return ?T
      */
     function loadIfExists( $class, $id );
 
@@ -144,9 +146,10 @@ interface ezcPersistentSessionFoundation
      *         ezcQuerySelect.
      *
      * @param ezcPersistentFindQuery|ezcQuerySelect $query
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      *
-     * @return array(object($class))
+     * @return T[]
      * @apichange This method will only accept an instance of
      *            ezcPersistentFindQuery as the $query parameter in future
      *            major releases. The $class parameter will be removed.
@@ -176,11 +179,11 @@ interface ezcPersistentSessionFoundation
      *         if $query parameter is not an instance of ezcPersistentFindQuery
      *         or ezcQuerySelect. Or if $class is missing if you use
      *         ezcQuerySelect.
+     * @template T
+     * @param ezcPersistentFindQuery<T>|ezcQuerySelect $query
+     * @param ?class-string $class
      *
-     * @param ezcPersistentFindQuery|ezcQuerySelect $query
-     * @param string $class
-     *
-     * @return ezcPersistentFindIterator
+     * @return ezcPersistentFindIterator<T>
      * @apichange This method will only accept an instance of
      *            ezcPersistentFindQuery as the $query parameter in future
      *            major releases. The $class parameter will be removed.

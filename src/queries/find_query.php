@@ -34,15 +34,17 @@
  * the query object. This deprecates the second parameter to {@link
  * ezcPersistentSession->find()}.
  *
+ * @template T
  * @package PersistentObject
  * @version //autogen//
+ * @extends ezcQuerySelect
  */
 class ezcPersistentFindQuery
 {
     /**
      * Properties.
      *
-     * @var array(string=>mixed)
+     * @var array{className: class-string<T>, query: ezcQuerySelect}
      */
     protected $properties = array();
 
@@ -53,7 +55,7 @@ class ezcPersistentFindQuery
      * given $className.
      *
      * @param ezcQuerySelect $query
-     * @param string $className
+     * @param class-string<T> $className
      */
     public function __construct( ezcQuerySelect $query, $className )
     {

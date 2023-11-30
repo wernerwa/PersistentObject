@@ -75,10 +75,11 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * @throws ezcPersistentObjectException
      *         if there is no such persistent class.
      *
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      * @param int $id
      *
-     * @return object
+     * @return T
      */
     public function load( $class, $id )
     {
@@ -91,10 +92,11 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * This method is equivalent to {@link load()} except that it returns null
      * instead of throwing an exception if the object does not exist.
      *
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      * @param int $id
      *
-     * @return object|null
+     * @return ?T
      */
     public function loadIfExists( $class, $id )
     {
@@ -180,7 +182,8 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      *         ezcQuerySelect.
      *
      * @param ezcPersistentFindQuery|ezcQuerySelect $query
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      *
      * @return array(object($class))
      * @apichange This method will only accept an instance of
@@ -217,7 +220,8 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      *         ezcQuerySelect.
      *
      * @param ezcPersistentFindQuery|ezcQuerySelect $query
-     * @param string $class
+     * @template T
+     * @param class-string<T> $class
      *
      * @return ezcPersistentFindIterator
      * @apichange This method will only accept an instance of
