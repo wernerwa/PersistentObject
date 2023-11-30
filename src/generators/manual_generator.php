@@ -51,7 +51,7 @@ class ezcPersistentManualGenerator extends ezcPersistentIdentifierGenerator
      *
      * @param ezcPersistentObjectDefinition $def
      * @param ezcDbHandler $db
-     * @param array(key=>value) $state
+     * @param array<string, string> $state
      * @return void
      */
     public function checkPersistence( ezcPersistentObjectDefinition $def, ezcDbHandler $db, array $state )

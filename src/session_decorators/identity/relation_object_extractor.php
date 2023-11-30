@@ -89,7 +89,7 @@ class ezcPersistentIdentityRelationObjectExtractor
      * @param PDOStatement $stmt
      * @param string $class
      * @param mixed $id
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
+     * @param array<string, ezcPersistentRelationFindDefinition> $relations
      *
      * @return ezcPersistentObject
      */
@@ -125,10 +125,10 @@ class ezcPersistentIdentityRelationObjectExtractor
      * Extracts all objects of the $class defined in $q from $stmt, including
      * all related objects as defined in the $relations property of $q. Returns
      * the set of base objects found by $q.
-     *
+     * @template T
      * @param PDOStatement $stmt
-     * @param ezcPersistentFindWithRelationsQuery $q
-     * @return array(ezcPersistentObject)
+     * @param ezcPersistentFindWithRelationsQuery<T> $q
+     * @return T[]|ezcPersistentObject[]
      */
     public function extractObjectsWithRelatedObjects( PDOStatement $stmt, ezcPersistentFindWithRelationsQuery $q )
     {
@@ -177,8 +177,8 @@ class ezcPersistentIdentityRelationObjectExtractor
      * called recursively. If $restricted is set to true, named related object
      * sets will be created instead of normal related object sets.
      *
-     * @param array(string=>string) $row
-     * @param array(ezcPersistentRelationFindDefinition) $relations
+     * @param array<string, string> $row
+     * @param ezcPersistentRelationFindDefinition[] $relations
      * @param ezcPersistentObject $parent
      * @param bool $restricted
      */
@@ -313,7 +313,7 @@ class ezcPersistentIdentityRelationObjectExtractor
      * sets its state from the given $result row, as defined in $relation.
      * $tableAlias is the alias used for the specific relation in the query.
      *
-     * @param array(string=>string) $result
+     * @param array<string, string> $result
      * @param string $tableAlias
      * @param ezcPersistentRelationFindDefinition $relation
      * @return ezcPersistentObject

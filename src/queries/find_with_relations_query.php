@@ -25,16 +25,14 @@
  */
 /**
  * Find query object for pre-fetching queries in ezcPersistentSessionIdentityDecorator.
- *
  * This query class extends {@link ezcPersistentFindQuery} with the possibility
  * to define related objects to be pre-fretched. Do not instantiate this class
  * directly, but use {@link
  * ezcPersistentIdentityDecorator::createFindQueryWithRelations()} instead.
- *
  * @property-read bool $isRestricted
  *                Whether the query has been restricted using a {@link where()}
  *                condition.
- *
+ * @template T
  * @package PersistentObject
  * @version //autogen//
  */
@@ -51,7 +49,7 @@ class ezcPersistentFindWithRelationsQuery extends ezcPersistentFindQuery
      *
      * @param ezcQuerySelect $query
      * @param string $className
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
+     * @param array<string, ezcPersistentRelationFindDefinition> $relations
      */
     public function __construct( ezcQuerySelect $query, $className, array $relations )
     {
@@ -80,9 +78,9 @@ class ezcPersistentFindWithRelationsQuery extends ezcPersistentFindQuery
      * used as a typical related object set, but as a named set.
      *
      * @throws ezcQueryVariableParameterException if called with no parameters.
-     * @param string|array(string) $... Either a string with a logical expression name
+     * @param string|string[] $... Either a string with a logical expression name
      *                                  or an array with logical expressions.
-     * @return ezcQuerySelect
+     * @return ezcPersistentFindWithRelationsQuery<T>
      */
     public function where()
     {

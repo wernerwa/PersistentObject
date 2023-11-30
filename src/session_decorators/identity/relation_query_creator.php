@@ -55,7 +55,7 @@ class ezcPersistentIdentityRelationQueryCreator
     /**
      * Aliases to be registered in query objects.
      *
-     * @var array(string=>string)
+     * @var array<string, string>
      */
     protected $aliases = array();
 
@@ -82,7 +82,7 @@ class ezcPersistentIdentityRelationQueryCreator
      *
      * @param string $class
      * @param mixed $id
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
+     * @param array<string, ezcPersistentRelationFindDefinition> $relations
      * @return ezcDbQuerySelect
      */
     public function createLoadQuery( $class, $id, array $relations )
@@ -113,7 +113,7 @@ class ezcPersistentIdentityRelationQueryCreator
      * their related objects as defined in $relations.
      *
      * @param mixed $class
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
+     * @param array<string, ezcPersistentRelationFindDefinition> $relations
      * @return ezcPersistentFindWithRelationsQuery
      */
     public function createFindQuery( $class, array $relations )
@@ -139,7 +139,7 @@ class ezcPersistentIdentityRelationQueryCreator
      * $srcDef, with relation pre-fetching for $relations.
      *
      * @param ezcPersistentObjectDefinition $srcDef
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
+     * @param array<string, ezcPersistentRelationFindDefinition> $relations
      * @return ezcQuerySelect
      */
     protected function createBasicFindQuery( ezcPersistentObjectDefinition $srcDef, array $relations )
@@ -192,7 +192,7 @@ class ezcPersistentIdentityRelationQueryCreator
      * the correspond to.
      *
      * @param ezcPersistentObjectDefinition $srcDef
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
+     * @param array<string, ezcPersistentRelationFindDefinition> $relations
      */
     protected function fetchDefinitions( ezcPersistentObjectDefinition $srcDef, array $relations )
     {
@@ -229,7 +229,7 @@ class ezcPersistentIdentityRelationQueryCreator
      * are created in the query $q, for usage ease.
      *
      * @param ezcQuerySelect $q
-     * @param array(ezcPersistentRelationFindDefinition) $relations
+     * @param ezcPersistentRelationFindDefinition[] $relations
      */
     protected function createSelects( ezcQuerySelect $q, array $relations )
     {
@@ -332,7 +332,7 @@ class ezcPersistentIdentityRelationQueryCreator
      *
      * @param ezcQuerySelect $q
      * @param string $srcTableAlias
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
+     * @param array<string, ezcPersistentRelationFindDefinition> $relations
      */
     protected function createJoins( ezcQuerySelect $q, $srcTableAlias, array $relations )
     {

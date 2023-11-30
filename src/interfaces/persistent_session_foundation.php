@@ -217,12 +217,12 @@ interface ezcPersistentSessionFoundation
      * ezcPersistentRelationCollection}), the parameter $relationName becomes
      * mandatory to determine which relation definition to use. For normal
      * relations, this parameter is silently ignored.
-     *
+     * @template T
      * @param object $object
-     * @param string $relatedClass
+     * @param class-string<T> $relatedClass
      * @param string $relationName
      *
-     * @return array(int=>object($relatedClass))
+     * @return array<int, T>
      *
      * @throws ezcPersistentRelationNotFoundException
      *         if the given $object does not have a relation to $relatedClass.
@@ -530,7 +530,7 @@ interface ezcPersistentSessionFoundation
      *
      * @param ezcPersistentObjectDefinition $def Definition.
      * @param bool $prefixTableName
-     * @return array(string=>string)
+     * @return array<string, string>
      */
     function generateAliasMap( ezcPersistentObjectDefinition $def, $prefixTableName = true );
 
@@ -542,7 +542,7 @@ interface ezcPersistentSessionFoundation
      *
      * @param ezcPersistentObjectDefinition $def Defintion.
      * @param bool $prefixTableName
-     * @return array(int=>string)
+     * @return array<int, string>
      */
     function getColumnsFromDefinition( ezcPersistentObjectDefinition $def, $prefixTableName = true );
 }

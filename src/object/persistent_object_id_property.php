@@ -222,7 +222,7 @@ class ezcPersistentObjectIdProperty
      * var_export() generates code, that calls this method when it
      * is parsed with PHP.
      *
-     * @param array(string=>mixed) $array
+     * @param array<string, mixed> $array
      * @return ezcPersistentObjectIdProperty
      */
     public static function __set_state( array $array )

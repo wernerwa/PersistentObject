@@ -60,7 +60,7 @@ class ezcPersistentRelationFindDefinition extends ezcBaseStruct
     /**
      * Deeper relation definitions.
      *
-     * @var array(ezcPersistentRelationFindDefinition)
+     * @var ezcPersistentRelationFindDefinition[]
      */
     public $furtherRelations = array();
 
@@ -91,7 +91,7 @@ class ezcPersistentRelationFindDefinition extends ezcBaseStruct
      *
      * @param string $relatedClass
      * @param string $relationName
-     * @param array(ezcPersistentRelationFindDefinition) $furtherRelations
+     * @param ezcPersistentRelationFindDefinition[] $furtherRelations
      */
     public function __construct( $relatedClass, $relationName = null, array $furtherRelations = array() )
     {

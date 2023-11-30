@@ -45,7 +45,7 @@ interface ezcPersistentObject
      * object, assigned to the value of the attribute. The key must be the name
      * of the object property, not the database column name.
      *
-     * @return array(string=>mixed) The state of the object.
+     * @return array<string, mixed> The state of the object.
      */
     public function getState();
 

@@ -64,7 +64,7 @@ class ezcPersistentSingleTableMap extends ezcBaseStruct
     /**
      * Sets the state of this map.
      *
-     * @param array(key=>value) $state
+     * @param array{sourceColumn: string, destinationColumn: string} $state
      * @ignore
      */
     public static function __set_state( array $state )

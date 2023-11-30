@@ -37,7 +37,7 @@ class ezcPersistentObjectRelations extends ArrayObject
     /**
      * Stores the relation objects.
      *
-     * @var array(ezcPersistentRelation)
+     * @var ezcPersistentRelation[]
      */
     private $relations;
 

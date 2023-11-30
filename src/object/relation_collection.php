@@ -37,7 +37,7 @@ class ezcPersistentRelationCollection extends ArrayObject
     /**
      * Stores the relation objects.
      *
-     * @var array(ezcPersistentRelation)
+     * @var ezcPersistentRelation[]
      */
     private $relations;
 
@@ -77,7 +77,7 @@ class ezcPersistentRelationCollection extends ArrayObject
      * See SPL class ArrayObject.
      * Performs additional value checks on the array.
      *
-     * @param array(ezcPersistentRelation) $array New relations array.
+     * @param ezcPersistentRelation[] $array New relations array.
      * @return void
      */
     public function exchangeArray( $array )

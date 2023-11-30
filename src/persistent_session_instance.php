@@ -65,7 +65,7 @@ class ezcPersistentSessionInstance
      *        'server2' => [object] );
      * </code>
      *
-     * @var array(string=>ezcPersistentSession)
+     * @var array<string, ezcPersistentSession>
      */
     static private $instances = array();
 

@@ -41,7 +41,7 @@ class ezcPersistentMultiManager extends ezcPersistentDefinitionManager
     /**
      * Holds the list of managers.
      *
-     * @var array(ezcPersistentDefinitionManager)
+     * @var ezcPersistentDefinitionManager[]
      */
     private $managers;
 
@@ -49,7 +49,7 @@ class ezcPersistentMultiManager extends ezcPersistentDefinitionManager
      * Constructs a new multimanager that will look for persistent object definitions
      * in all $managers.
      *
-     * @param array(ezcPersistentDefinitionManager) $managers
+     * @param ezcPersistentDefinitionManager[] $managers
      */
     public function __construct( array $managers = array() )
     {

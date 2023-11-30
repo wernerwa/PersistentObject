@@ -381,12 +381,12 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      * ezcPersistentRelationCollection}), the parameter $relationName becomes
      * mandatory to determine which relation definition to use. For normal
      * relations, this parameter is silently ignored.
-     *
+     * @template T
      * @param object $object
-     * @param string $relatedClass
+     * @param class-string<T> $relatedClass
      * @param string $relationName
      *
-     * @return array(int=>object($relatedClass))
+     * @return array<int, T>
      *
      * @throws ezcPersistentRelationNotFoundException
      *         if the given $object does not have a relation to $relatedClass.
@@ -536,12 +536,12 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      * $relationName becomes mandatory to determine the relation to use for
      * fetching objects. If the parameter is not submitted, an exception will
      * be thrown. For normal relations this parameter will be silently ignored.
-     *
+     * @template T
      * @param object $object
-     * @param string $relatedClass
+     * @param class-string<T> $relatedClass
      * @param string $relationName
      *
-     * @return ezcPersistentFindQuery
+     * @return ezcPersistentFindQuery<T>
      *
      * @throws ezcPersistentRelationNotFoundException
      *         if the given $object does not have a relation to $relatedClass.

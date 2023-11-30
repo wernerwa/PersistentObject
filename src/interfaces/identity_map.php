@@ -97,14 +97,14 @@ interface ezcPersistentIdentityMap
      * To avoid a call to {@link getRelatedObjects()} after this method has
      * been called, the recorded set of related objects (including potentially
      * replaced identities) is returned.
-     *
+     * @template T
      * @param ezcPersistentObject $sourceObject
-     * @param array(ezcPersistentObject) $relatedObjects
-     * @param string $relatedClass
+     * @param ezcPersistentObject[] $relatedObjects
+     * @param class-string<T> $relatedClass
      * @param string $relationName
      * @param bool $replaceIdentities
      *
-     * @return array(mixed=>object($relatedClass))
+     * @return T[]
      *
      * @throws ezcPersistentIdentityRelatedObjectsInconsistentException
      *         if an object in $relatedObjects is not of $relatedClass.
@@ -137,11 +137,11 @@ interface ezcPersistentIdentityMap
      * call to {@link getRelatedObjectSet()} by the using objct.
      *
      * @param ezcPersistentObject $sourceObject
-     * @param array(ezcPersistentObject) $relatedObjects
+     * @param ezcPersistentObject[] $relatedObjects
      * @param string $setName
      * @param bool $replaceIdentities
      *
-     * @return array(ezcPersistentObject)
+     * @return ezcPersistentObject[]
      *
      * @throws ezcPersistentIdentityRelatedObjectsInconsistentException
      *         if an object in $relatedObjects is not of $relatedClass.

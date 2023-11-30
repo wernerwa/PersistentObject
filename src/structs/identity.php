@@ -61,7 +61,7 @@ class ezcPersistentIdentity extends ezcBaseStruct
      * ?>
      * </code>
      *
-     * @var array(string=>ArrayObject(mixed=>ezcPersistentObject))
+     * @var array<class-string, ArrayObject<mixed, ezcPersistentObject>>
      */
     public $relatedObjects;
 
@@ -90,7 +90,7 @@ class ezcPersistentIdentity extends ezcBaseStruct
      * ?>
      * </code>
      *
-     * @var array(string=>ArrayObject(mixed=>ezcPersistentObject))
+     * @var array<class-string, ArrayObject<mixed, ezcPersistentObject>>
      */
     public $namedRelatedObjectSets;
 
@@ -101,7 +101,7 @@ class ezcPersistentIdentity extends ezcBaseStruct
      * $namedRelatedObjectSets sets, the $object of this identity is referenced
      * in.
      *
-     * @var SplObjectStorage(ArrayObject)
+     * @var SplObjectStorage|ArrayObject
      */
     public $references;
 
@@ -116,7 +116,7 @@ class ezcPersistentIdentity extends ezcBaseStruct
      * @param object $object
      * @param array $relatedObjects
      * @param array $namedRelatedObjectSets
-     * @param SplObjectStorage $references
+     * @param ?SplObjectStorage $references
      */
     public function __construct(
         $object = null,

@@ -39,14 +39,14 @@
  * @property string $table Name of the database table to use.
  * @property class-string<T> $class Class-name of the PersistentObject.
  * @property ezcPersistentObjectIdProperty $idProperty Holds the identifier property.
- * @property array(string=>ezcPersistentObjectProperty) $properties
+ * @property array<string, ezcPersistentObjectProperty> $properties
  *           The fields of the Persistent Object as an array of
  *           ezcPersistentObjectProperty.
- * @property array(string=>ezcPersistentObjectProperty) $columns
+ * @property array<string, ezcPersistentObjectProperty> $columns
  *           The fields of the Persistent Object as an array of
  *           ezcPersistentObjectProperty.  The key is the name of the original
  *           database column.
- * @property array(string=>ezcPersistentRelation) $relations
+ * @property array<string, ezcPersistentRelation> $relations
  *           Contains the relations of this object. An array indexed by class
  *           names of the related object, assigned to an instance of a class
  *           derived from ezcPersistentRelation.
@@ -58,7 +58,7 @@ class ezcPersistentObjectDefinition
      * Property array.
      * Named differently to avoid problems with the property $properties.
      *
-     * @var array(string=>mixed)
+     * @var array<string, mixed>
      */
     protected $propertyArray = array(
         'table'      => null,
@@ -231,7 +231,7 @@ class ezcPersistentObjectDefinition
      * var_export() generates code, that calls this method when it
      * is parsed with PHP.
      *
-     * @param array(string=>mixed) $array
+     * @param array<string, mixed> $array
      * @return ezcPersistentObjectDefinition
      */
     public static function __set_state( array $array )

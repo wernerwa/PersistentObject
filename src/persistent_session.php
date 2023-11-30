@@ -45,7 +45,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
     /**
      * Holds the properties of this class.
      *
-     * @var array(string=>mixed)
+     * @var array<string, mixed>
      */
     private $properties = array();
 
@@ -185,7 +185,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * @template T
      * @param class-string<T> $class
      *
-     * @return array(object($class))
+     * @return T[]
      * @apichange This method will only accept an instance of
      *            ezcPersistentFindQuery as the $query parameter in future
      *            major releases. The $class parameter will be removed.
@@ -260,12 +260,12 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * ezcPersistentRelationCollection}), the parameter $relationName becomes
      * mandatory to determine which relation definition to use. For normal
      * relations, this parameter is silently ignored.
-     *
+     * @template T
      * @param object $object
-     * @param string $relatedClass
+     * @param class-string<T> $relatedClass
      * @param string $relationName
      *
-     * @return array(int=>object($relatedClass))
+     * @return array<int, T>
      *
      * @throws ezcPersistentRelationNotFoundException
      *         if the given $object does not have a relation to $relatedClass.
@@ -382,12 +382,12 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * ezcPersistentRelationCollection}), the parameter $relationName becomes
      * mandatory to determine which relation definition to use. For normal
      * relations, this parameter is silently ignored.
-     *
+     * @template T
      * @param object $object
-     * @param string $relatedClass
+     * @param class-string<T> $relatedClass
      * @param string $relationName
      *
-     * @return ezcPersistentFindQuery
+     * @return ezcPersistentFindQuery<T>
      *
      * @throws ezcPersistentRelationNotFoundException
      *         if the given $object does not have a relation to $relatedClass.
@@ -704,7 +704,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      *
      * @param ezcPersistentObjectDefinition $def Definition.
      * @param bool $prefixTableName
-     * @return array(string=>string)
+     * @return array<string, string>
      */
     public function generateAliasMap( ezcPersistentObjectDefinition $def, $prefixTableName = true )
     {
@@ -730,7 +730,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      *
      * @param ezcPersistentObjectDefinition $def Defintion.
      * @param bool $prefixTableName
-     * @return array(int=>string)
+     * @return array<int, string>
      */
     public function getColumnsFromDefinition( ezcPersistentObjectDefinition $def, $prefixTableName = true )
     {

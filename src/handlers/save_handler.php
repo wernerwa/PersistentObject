@@ -41,7 +41,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
      * Caches ID generators so that of every generator class only 1 object
      * exists.
      *
-     * @var array(string=>ezcPersistentIdentifierGenerator)
+     * @var array<string, ezcPersistentIdentifierGenerator>
      */
     private $idGeneratorRegistry = array();
 
@@ -521,9 +521,9 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
      * Filters out all properties not in the definition and casts the
      * values to native PHP types.
      *
-     * @param array(string=>string) $state
+     * @param array<string, string> $state
      * @param ezcPersistentObjectDefinition $def
-     * @return array(string=>mixed)
+     * @return array<string, mixed>
      */
     private function filterAndCastState( array $state, ezcPersistentObjectDefinition $def )
     {

@@ -37,7 +37,7 @@ class ezcPersistentObjectColumns extends ArrayObject
     /**
      * Stores the column objects.
      *
-     * @var array(ezcPersistentObjectProperty)
+     * @var ezcPersistentObjectProperty[]
      */
     private $columns;
 
@@ -77,7 +77,7 @@ class ezcPersistentObjectColumns extends ArrayObject
      * See SPL class ArrayObject.
      * Performs additional value checks on the array.
      *
-     * @param array(ezcPersistentObjectProperty) $array New relations array.
+     * @param ezcPersistentObjectProperty[] $array New relations array.
      * @return void
      */
     public function exchangeArray( $array ): array

@@ -50,7 +50,7 @@ class ezcPersistentSessionIdentityDecoratorOptions extends ezcBaseOptions
      *         If trying to access a non existent property.
      * @throws ezcBaseValueException
      *         If the value for a property is out of range.
-     * @param array(string=>mixed) $options The initial options to set.
+     * @param array<string, mixed> $options The initial options to set.
      */
     public function __construct( array $options = array() )
     {
