@@ -1,11 +1,11 @@
 <?php
 return array (
 	0 => array(
-		'PO_test' => 
+		'PO_test' =>
 		ezcDbSchemaTable::__set_state(array(
-			'fields' => 
+			'fields' =>
 			array (
-				'ID' => 
+				'ID' =>
 				ezcDbSchemaField::__set_state(array(
 					'type' => 'integer',
 					'length' => 10,
@@ -14,7 +14,7 @@ return array (
 					'autoIncrement' => true,
 					'unsigned' => false,
 				)),
-				'Type_VarCHAR' => 
+				'Type_VarCHAR' =>
 				ezcDbSchemaField::__set_state(array(
 					'type' => 'text',
 					'length' => 20,
@@ -23,7 +23,7 @@ return array (
 					'autoIncrement' => false,
 					'unsigned' => false,
 				)),
-				'tYPe_inTEGer' => 
+				'tYPe_inTEGer' =>
 				ezcDbSchemaField::__set_state(array(
 					'type' => 'integer',
 					'length' => 11,
@@ -32,7 +32,7 @@ return array (
 					'autoIncrement' => false,
 					'unsigned' => false,
 				)),
-				'type_decimal' => 
+				'type_decimal' =>
 				ezcDbSchemaField::__set_state(array(
 					'type' => 'float',
 					'length' => 10,
@@ -41,7 +41,7 @@ return array (
 					'autoIncrement' => false,
 					'unsigned' => false,
 				)),
-				'TYPE_TEXT' => 
+				'TYPE_TEXT' =>
 				ezcDbSchemaField::__set_state(array(
 					'type' => 'text',
 					'length' => 0,
@@ -52,7 +52,7 @@ return array (
 				)),
 			),
 			'indexes' => array (
-				0 => 
+				0 =>
 				ezcDbSchemaIndex::__set_state(array (
 					'indexFields' => array (
 						'ID' => ezcDbSchemaIndexField::__set_state(array(

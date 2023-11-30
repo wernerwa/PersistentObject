@@ -247,7 +247,7 @@
   columnName.
 - Fixed issue #10112: Lots of failures in PersistentObject tests with
   PostgreSQL.
-- Fixed issue #10153: Persistent Object and manual generator (negative and 
+- Fixed issue #10153: Persistent Object and manual generator (negative and
   0 primary keys).
 - Fixed issue #10369: testAddRelatedBirthdayToPerson3UpdateSuccess fails for
   no apparant reason.
@@ -258,8 +258,8 @@
 - Implemented feature #9089: Make some methods public.
   ezcPersistentSession->generateAliasMap() and ->getColumnsFromDefinition()
   are public now.
-	
-	
+
+
 1.2 - Monday 18 December 2006
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -307,7 +307,7 @@
   definition manager through the database and definitionManager properties of
   the ezcPersistentObjectSession class to help with transaction support.
 - Implemented suggestion #8595: Added the ezcPersistentMultiManager class that
-  serves as a singleton mechanism for ezcPersistentSession.	
+  serves as a singleton mechanism for ezcPersistentSession.
 - Implemented suggestion #8664: ezcPersistentSession: Cast values and skip
   undefined properties. Patch by Joel Arvidsson.
 - Added support for several definition managers through
@@ -383,7 +383,7 @@
   * ezcPersistentGeneratorDefinition to set up what generator to use in the
     definition.
 
-	
+
 1.0beta1 - Friday 23 December 2005
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

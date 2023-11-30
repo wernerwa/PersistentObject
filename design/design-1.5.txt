@@ -40,7 +40,7 @@ flow to create a find query for certain objects and fetch the desired objects::
     $query = $session->createFindQuery( 'SomeClass' );
 
     $query->where( /*...*/ );
-    
+
     $objects = $session->find( $query, 'SomeClass' );
     ?>
 
@@ -76,7 +76,7 @@ The resulting code for user will be simplified as follows::
     $query = $session->createFindQuery( 'SomeClass' );
 
     $query->where( /*...*/ );
-    
+
     $objects = $session->find( $query );
     ?>
 
@@ -135,7 +135,7 @@ role in this design:
   ezcPersistentIdentitySession to cache query results. A basic implementation
   of this interface is ezcPersistentBasicIdentityMap, realizing the typical
   identity map, by storing the identities in memory of the current process.
-  
+
   An instance of this class builds the heart of ezcPersistentIdentitySession.
   It takes care for the in-memory management of object identities. The instance
   used by ezcPersistentIdentitySession is replaceable, to allow custom
@@ -226,7 +226,7 @@ option.  In this case, identities will be updated, before they are fetched from
 the identity map. 2 cases must be differntiated here:
 
 1. The identity is not found in the identity map.
-   
+
    In this case, the identity will be cretaed as usual.
 
 2. The identity is found in the identity map.
@@ -409,7 +409,7 @@ interface:
   not available, null is returned.
 
 - removeIdentity( object $object )
-  
+
   Removes the identity for the given $object from the map. In addition, removes
   the object from all related object sets and named related object sets it is
   referenced in.
@@ -441,7 +441,7 @@ interface:
 
   Appends a related object to an existing cached relation. Used in
   ezcPersistentIdentitySession->addRelatedObject().
-  
+
   If no relation result set has been cached, yet, it is not created, but the
   call is ignored. This results in a newly fetch of the relation when
   getRelatedObjects() is called.
@@ -529,7 +529,7 @@ following code::
     $userB = $session->load( 'User', 42 );
 
     $q = $session->createFindQuery( 'User' );
-    $q->where( 
+    $q->where(
         $q->expr->lessThan( 'id, 1000 )
     );
 
@@ -549,7 +549,7 @@ The same applies to relations::
 
     <?php
     $addresses = $session->getRelatedObjects( $user, 'Address' );
-    
+
     // ...
     $addresses = $session->getRelatedObjects( $user, 'Address' );
 
@@ -750,7 +750,7 @@ The struct looks as follows::
         {
             // ...
         }
-    
+
     }
     ?>
 
@@ -825,7 +825,7 @@ Book objects to the following code::
         )
     );
     $books = $session->findWithRelations( $q );
-    
+
     // ...
     ?>
 
@@ -1001,7 +1001,7 @@ Design
 
 The new `Select query decorator`_ which will be returned by createFindQuery()
 from this version on, will be enhanced by a method::
-    
+
     createSubFindQuery( string $className )
 
 This method will call ezcQuerySelect->subSelect() on the inner query object and

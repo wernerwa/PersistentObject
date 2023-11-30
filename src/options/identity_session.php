@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -43,9 +43,9 @@ class ezcPersistentSessionIdentityDecoratorOptions extends ezcBaseOptions
      * Construct a new options object.
      *
      * Options are constructed from an option array by default. The constructor
-     * automatically passes the given options to the __set() method to set them 
+     * automatically passes the given options to the __set() method to set them
      * in the class.
-     * 
+     *
      * @throws ezcBasePropertyNotFoundException
      *         If trying to access a non existent property.
      * @throws ezcBaseValueException
@@ -62,7 +62,7 @@ class ezcPersistentSessionIdentityDecoratorOptions extends ezcBaseOptions
      * Sets an option.
      *
      * This method is called when an option is set.
-     * 
+     *
      * @param string $propertyName  The name of the option to set.
      * @param mixed $propertyValue The option value.
      * @ignore
@@ -84,7 +84,7 @@ class ezcPersistentSessionIdentityDecoratorOptions extends ezcBaseOptions
                     throw new ezcBaseValueException( $propertyName, $propertyValue, 'bool' );
                 }
                 break;
-            
+
             default:
                 throw new ezcBasePropertyNotFoundException( $propertyName );
         }

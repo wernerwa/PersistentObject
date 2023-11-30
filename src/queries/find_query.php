@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -33,15 +33,15 @@
  * PersistentObject to store and determine the class for objects to fetch from
  * the query object. This deprecates the second parameter to {@link
  * ezcPersistentSession->find()}.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  */
 class ezcPersistentFindQuery
 {
     /**
-     * Properties. 
-     * 
+     * Properties.
+     *
      * @var array(string=>mixed)
      */
     protected $properties = array();
@@ -51,7 +51,7 @@ class ezcPersistentFindQuery
      *
      * Creates a new persistent find query from the query object $q and the
      * given $className.
-     * 
+     *
      * @param ezcQuerySelect $query
      * @param string $className
      */
@@ -72,7 +72,7 @@ class ezcPersistentFindQuery
      * Delegate to inner $query object.
      *
      * Delegates calls to unknown methods to $query property.
-     * 
+     *
      * @param string $methodName
      * @param array $arguments
      * @return mixed
@@ -97,8 +97,8 @@ class ezcPersistentFindQuery
 
     /**
      * Property get access.
-     * 
-     * @param string $propertyName 
+     *
+     * @param string $propertyName
      * @return mixed
      * @ignore
      *
@@ -121,8 +121,8 @@ class ezcPersistentFindQuery
 
     /**
      * Property set access.
-     * 
-     * @param string $propertyName 
+     *
+     * @param string $propertyName
      * @param mixed $properyValue
      * @ignore
      *
@@ -152,8 +152,8 @@ class ezcPersistentFindQuery
 
     /**
      * Property isset access.
-     * 
-     * @param string $propertyName 
+     *
+     * @param string $propertyName
      * @return bool
      * @ignore
      */

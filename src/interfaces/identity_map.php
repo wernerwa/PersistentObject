@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -29,7 +29,7 @@
  * An instance of a class implementing this interface is used in {@link
  * ezcPersistentSessionIdentityDecorator} to performs the internal work of
  * storing and retrieving object identities.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  */
@@ -43,7 +43,7 @@ interface ezcPersistentIdentityMap
      * care of checking for already recorded identities of the given $object
      * itself.
      *
-     * @param ezcPersistentObject $object 
+     * @param ezcPersistentObject $object
      */
     public function setIdentity( $object );
 
@@ -52,9 +52,9 @@ interface ezcPersistentIdentityMap
      *
      * Returns the object of $class with $id, if its identity has already been
      * recorded. Otherwise null is returned.
-     * 
-     * @param string $class 
-     * @param mixed $id 
+     *
+     * @param string $class
+     * @param mixed $id
      * @return object($class)|null
      */
     public function getIdentity( $class, $id );
@@ -65,9 +65,9 @@ interface ezcPersistentIdentityMap
      * Removes the identity of the object of $class with $id from the map and
      * deletes all references of it. If the identity does not exist, the call
      * is silently ignored.
-     * 
-     * @param string $class 
-     * @param mixed $id 
+     *
+     * @param string $class
+     * @param mixed $id
      */
     public function removeIdentity( $class, $id );
 
@@ -97,11 +97,11 @@ interface ezcPersistentIdentityMap
      * To avoid a call to {@link getRelatedObjects()} after this method has
      * been called, the recorded set of related objects (including potentially
      * replaced identities) is returned.
-     * 
+     *
      * @param ezcPersistentObject $sourceObject
-     * @param array(ezcPersistentObject) $relatedObjects 
-     * @param string $relatedClass 
-     * @param string $relationName 
+     * @param array(ezcPersistentObject) $relatedObjects
+     * @param string $relatedClass
+     * @param string $relationName
      * @param bool $replaceIdentities
      *
      * @return array(mixed=>object($relatedClass))
@@ -135,10 +135,10 @@ interface ezcPersistentIdentityMap
      *
      * The method returns the created set of related objects to avoid another
      * call to {@link getRelatedObjectSet()} by the using objct.
-     * 
+     *
      * @param ezcPersistentObject $sourceObject
-     * @param array(ezcPersistentObject) $relatedObjects 
-     * @param string $setName 
+     * @param array(ezcPersistentObject) $relatedObjects
+     * @param string $setName
      * @param bool $replaceIdentities
      *
      * @return array(ezcPersistentObject)
@@ -164,8 +164,8 @@ interface ezcPersistentIdentityMap
      * not determine, to which named related object sub-set the $relatedObject
      * might be added.
      *
-     * @param ezcPersistentObject $sourceObject 
-     * @param ezcPersistentObject $relatedObject 
+     * @param ezcPersistentObject $sourceObject
+     * @param ezcPersistentObject $relatedObject
      * @param string $relationName
      *
      * @throws ezcPersistentRelationNotFoundException
@@ -186,9 +186,9 @@ interface ezcPersistentIdentityMap
      * (named and unnamed) for $sourceObject. This method (in contrast to
      * {@link addRelatedObject()}) does not invalidate named related object
      * sets, but simply removes the $relatedObject from them.
-     * 
-     * @param ezcPersistentObject $sourceObject 
-     * @param ezcPersistentObject $relatedObject 
+     *
+     * @param ezcPersistentObject $sourceObject
+     * @param ezcPersistentObject $relatedObject
      * @param string $relationName
      *
      * @throws ezcPersistentIdentityMissingException
@@ -202,9 +202,9 @@ interface ezcPersistentIdentityMap
      * Returns the set of related objects of $relatedClass for $sourceObject.
      * This might also be an empty set (empty array). In case no related
      * objects are recorded, yet, null is returned.
-     * 
-     * @param ezcPersistentObject $sourceObject 
-     * @param string $relatedClass 
+     *
+     * @param ezcPersistentObject $sourceObject
+     * @param string $relatedClass
      * @param string $relationName
      *
      * @return array(object($relatedClass))|null
@@ -221,9 +221,9 @@ interface ezcPersistentIdentityMap
      * Returns the named set of related objects for $sourceObject identified by
      * $setName. This might also be an empty set (empty array). In case no
      * related objects with this name are recorded, yet, null is returned.
-     * 
-     * @param ezcPersistentObject $sourceObject 
-     * @param string $setName 
+     *
+     * @param ezcPersistentObject $sourceObject
+     * @param string $setName
      * @return array(object($relatedClass))|null
      */
     public function getRelatedObjectSet( $sourceObject, $setName );

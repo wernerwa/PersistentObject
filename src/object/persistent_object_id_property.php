@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -31,7 +31,7 @@
  * ezcPersistentManualGenerator} and set the ID property of the affected object
  * yourself. Alternatively you can implement your own {@link
  * ezcPersistentIdentifierGenerator} to perform this operation consistently.
- * 
+ *
  * The default value for the ID should be null, since {@link
  * ezcPersistentSession::save()} determines if an object was already saved this
  * way for integer IDs.
@@ -43,7 +43,7 @@
  *                                value.
  * @property string $propertyName The name of the PersistentObject property
  *                                that holds the value in the PHP object.
- * @property int $propertyType    The type of the PHP property. See class 
+ * @property int $propertyType    The type of the PHP property. See class
  *                                constants ezcPersistentObjectProperty::PHP_TYPE_*.
  * @property int $visibility      The visibility of the property. This property is deprecated!
  * @property ezcPersistentGeneratorDefinition $generator
@@ -89,7 +89,7 @@ class ezcPersistentObjectIdProperty
      * @param int $propertyType See {@link ezcPersistentObjectProperty} for possible values.
      * @param int $databaseType See {@link PDO::*} for possible values.
      */
-    public function __construct( 
+    public function __construct(
         $columnName = null,
         $propertyName = null,
         $visibility = null,
@@ -108,7 +108,7 @@ class ezcPersistentObjectIdProperty
 
     /**
      * Property read access.
-     * 
+     *
      * @param string $propertyName Name of the property.
      * @return mixed Value of the property or null.
      *
@@ -127,7 +127,7 @@ class ezcPersistentObjectIdProperty
 
     /**
      * Property write access.
-     * 
+     *
      * @param string $propertyName Name of the property.
      * @param mixed $propertyValue  The value for the property.
      *
@@ -202,7 +202,7 @@ class ezcPersistentObjectIdProperty
 
     /**
      * Property isset access.
-     * 
+     *
      * @param string $propertyName Name of the property.
      * @return bool True is the property is set, otherwise false.
      * @ignore

@@ -1,11 +1,11 @@
 <?php return array (
-  0 => 
+  0 =>
   array (
-    'PO_database_type_test' => 
+    'PO_database_type_test' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'bool' => 
+        'bool' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'boolean',
            'length' => 0,
@@ -14,7 +14,7 @@
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'id' => 
+        'id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -23,7 +23,7 @@
            'autoIncrement' => true,
            'unsigned' => false,
         )),
-        'int' => 
+        'int' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -32,7 +32,7 @@
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'lob' => 
+        'lob' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'blob',
            'length' => 0,
@@ -41,7 +41,7 @@
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'str' => 
+        'str' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 100,
@@ -51,13 +51,13 @@
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'id' => 
+            'id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -68,7 +68,7 @@
       ),
     )),
   ),
-  1 => 
+  1 =>
   array (
   ),
 ); ?>

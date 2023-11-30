@@ -40,7 +40,7 @@ The persistent object must be able do deal with
 - required fields
 - (auto) incrementing fields
 
-There must also be an option for quick access to records without having to 
+There must also be an option for quick access to records without having to
 instantiate a lot of objects.
 
 Design
@@ -52,7 +52,7 @@ Class design
 ezcPersistentObject
     This class implements the persistent object with the above requirements.
     In order to use it you must inherit it and define the various properties,
-    and implement the definition method which is used to tell 
+    and implement the definition method which is used to tell
     ezcPersistentObject what your object looks like.
 
 ezcPersistentRecord

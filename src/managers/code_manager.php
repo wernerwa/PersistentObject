@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -29,10 +29,10 @@
  *
  * Each definition must be in a separate file in the directory specified to the
  * constructor. The filename must be the same as the lowercase name of the
- * persistent object class with .php appended. For namespaces (PHP 5.3 and 
- * newer), sub-directories are used. For example the definition for class 
- * MyClass must reside in the top level directory as myclass.php and the 
- * definition for My\Namespace\Class must reside in my/namespace/class.php. 
+ * persistent object class with .php appended. For namespaces (PHP 5.3 and
+ * newer), sub-directories are used. For example the definition for class
+ * MyClass must reside in the top level directory as myclass.php and the
+ * definition for My\Namespace\Class must reside in my/namespace/class.php.
  * Each such file must return the definition of one persistent object class.
  *
  * Example exampleclass.php:

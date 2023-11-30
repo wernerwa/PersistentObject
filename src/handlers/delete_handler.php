@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -29,7 +29,7 @@
  *
  * An instance of this class is used internally in {@link ezcPersistentSession}
  * and takes care for deleting objects.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  * @access private
@@ -97,14 +97,14 @@ class ezcPersistentDeleteHandler extends ezcPersistentSessionHandler
 
         // Create and execute query.
         $q = $this->database->createDeleteQuery();
-        $q->deleteFrom( 
+        $q->deleteFrom(
             $this->database->quoteIdentifier( $def->table )
           )
           ->where(
             $q->expr->eq(
                 $this->database->quoteIdentifier( $def->idProperty->columnName ),
                 $q->bindValue( $idValue, null, $def->idProperty->databaseType )
-            ) 
+            )
         );
 
         try
@@ -158,7 +158,7 @@ class ezcPersistentDeleteHandler extends ezcPersistentSessionHandler
         }
 
         $relation = $def->relations[$relatedClass];
-        
+
         // New multi-relations for a single class
         if ( $relation instanceof ezcPersistentRelationCollection )
         {
@@ -176,7 +176,7 @@ class ezcPersistentDeleteHandler extends ezcPersistentSessionHandler
             }
             $relation = $relation[$relationName];
         }
-        
+
         if ( isset( $relation->reverse ) && $relation->reverse === true )
         {
             throw new ezcPersistentRelationOperationNotSupportedException(

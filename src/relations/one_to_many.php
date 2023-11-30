@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -30,7 +30,7 @@
  * @property bool $cascade
  *           Wether to cascade delete action from the source table to the
  *           destination table.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  */
@@ -55,7 +55,7 @@ class ezcPersistentOneToManyRelation extends ezcPersistentRelation
      * maps for this kind of relation may only contain instances of
      * {@link ezcPersistentSingleTableMap} and have to at least contain 1
      * instance.
-     *  
+     *
      * @param array $columnMap The column map to check.
      *
      * @throws ezcBaseValueException On an invalid column map.
@@ -85,7 +85,7 @@ class ezcPersistentOneToManyRelation extends ezcPersistentRelation
 
     /**
      * Property read access.
-     * 
+     *
      * @param string $propertyName Name of the property.
      * @return mixed Value of the property or null.
      *
@@ -107,7 +107,7 @@ class ezcPersistentOneToManyRelation extends ezcPersistentRelation
 
     /**
      * Property write access.
-     * 
+     *
      * @param string $propertyName Name of the property.
      * @param mixed $propertyValue  The value for the property.
      *
@@ -140,7 +140,7 @@ class ezcPersistentOneToManyRelation extends ezcPersistentRelation
 
     /**
      * Property isset access.
-     * 
+     *
      * @param string $propertyName Name of the property.
      * @return bool True is the property is set, otherwise false.
      * @ignore
@@ -156,13 +156,13 @@ class ezcPersistentOneToManyRelation extends ezcPersistentRelation
 
     /**
      * Sets the state after importing an exported object.
-     * 
-     * @param array $state 
+     *
+     * @param array $state
      * @return void
      */
     public static function __set_state( array $state )
     {
-        $rel = new ezcPersistentOneToManyRelation( 
+        $rel = new ezcPersistentOneToManyRelation(
             $state['properties']['sourceTable'],
             $state['properties']['destinationTable']
         );

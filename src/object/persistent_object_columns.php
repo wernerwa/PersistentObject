@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -26,7 +26,7 @@
 
 /**
  * ezcPersistentObjectColumns class.
- * 
+ *
  * @access private
  *
  * @package PersistentObject
@@ -35,16 +35,16 @@
 class ezcPersistentObjectColumns extends ArrayObject
 {
     /**
-     * Stores the column objects. 
-     * 
+     * Stores the column objects.
+     *
      * @var array(ezcPersistentObjectProperty)
      */
     private $columns;
 
     /**
      * Create a new instance.
-     * Implicitly done in constructor of 
-     * 
+     * Implicitly done in constructor of
+     *
      * @return void
      */
     public function __construct()
@@ -55,9 +55,9 @@ class ezcPersistentObjectColumns extends ArrayObject
 
     /**
      * See SPL interface ArrayAccess.
-     * 
-     * @param string $offset 
-     * @param ezcPersistentObjectProperty $value 
+     *
+     * @param string $offset
+     * @param ezcPersistentObjectProperty $value
      * @return void
      */
     public function offsetSet( $offset, $value )
@@ -76,7 +76,7 @@ class ezcPersistentObjectColumns extends ArrayObject
     /**
      * See SPL class ArrayObject.
      * Performs additional value checks on the array.
-     * 
+     *
      * @param array(ezcPersistentObjectProperty) $array New relations array.
      * @return void
      */
@@ -99,7 +99,7 @@ class ezcPersistentObjectColumns extends ArrayObject
     /**
      * See SPL class ArrayObject.
      * Performs check if only 0 is used as a flag.
-     * 
+     *
      * @param int $flags Must be 0.
      * @return void
      */
@@ -112,9 +112,9 @@ class ezcPersistentObjectColumns extends ArrayObject
     }
 
     /**
-     * Appending is not supported. 
-     * 
-     * @param mixed $value 
+     * Appending is not supported.
+     *
+     * @param mixed $value
      * @return void
      */
     public function append( $value )
@@ -124,7 +124,7 @@ class ezcPersistentObjectColumns extends ArrayObject
 
     /**
      * Sets the state on deserialization.
-     * 
+     *
      * @param array $state
      * @return ezcPersistentObjectColumns
      */

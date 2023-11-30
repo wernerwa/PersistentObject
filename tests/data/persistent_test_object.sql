@@ -1,6 +1,6 @@
--- 
+--
 -- Table structure for table `PO_test`
--- 
+--
 
 CREATE TABLE PO_test (
   id bigint(20) NOT NULL,

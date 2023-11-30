@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -57,7 +57,7 @@ class ezcPersistentObjectDefinition
     /**
      * Property array.
      * Named differently to avoid problems with the property $properties.
-     * 
+     *
      * @var array(string=>mixed)
      */
     protected $propertyArray = array(
@@ -87,7 +87,7 @@ class ezcPersistentObjectDefinition
         $this->table      = $table;
         $this->class      = $class;
         $this->idProperty = $idProperty;
-        
+
         $this->relations = new ezcPersistentObjectRelations();
         $this->relations->exchangeArray( $relations );
 

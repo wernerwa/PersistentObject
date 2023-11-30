@@ -39,7 +39,7 @@ these are:
 - PDO::PARAM_INT
 - PDO::PARAM_LOB
 - PDO::PARAM_STR (default)
-- PDO::PARAM_INPUT_OUTPUT Currently unsported by PDO. Used for in/out 
+- PDO::PARAM_INPUT_OUTPUT Currently unsported by PDO. Used for in/out
   parameters of a stored procedure.
 
 Currently only the default paramter PARAM_STR is supported by persistent
@@ -73,7 +73,7 @@ Open questions
 --------------
 
 > It would be nice to make large binary data available as a resource both for
-> writing and reading. PDO::PARAM_LOB can handle this if used together with 
+> writing and reading. PDO::PARAM_LOB can handle this if used together with
 > PDO::FETCH_BOUND. Should we, and how do we make this available to the user?
 > Write support will most probably work out of the box. If the value is a
 > resource the whole file will be read automatically by PDO as long as PARAM_LOB
@@ -154,13 +154,13 @@ new signatures are:
     )
 
     ezcPersistentSession::addRelatedObject(
-        object $object, 
+        object $object,
         object $relationObject,
         string $relationName = null
     );
 
     ezcPersistentSession::removeRelatedObject(
-        object $object, 
+        object $object,
         object $relationObject,
         string $relationName = null
     );
@@ -197,7 +197,7 @@ An implementation of the example with persons would then look something like:
         "persons"
    );
 
-   $personRelations['Mother']->columnMap = array( 
+   $personRelations['Mother']->columnMap = array(
        new ezcPersistentSingleTableMap(
            "id",
            "mother_id"
@@ -208,7 +208,7 @@ An implementation of the example with persons would then look something like:
        "persons",
        "persons"
    );
-   $personRelations['Father']->columnMap = array( 
+   $personRelations['Father']->columnMap = array(
        new ezcPersistentSingleTableMap(
            "id",
            "father_id"
@@ -363,5 +363,5 @@ objects.
    Local Variables:
    mode: rst
    fill-column: 79
-   End: 
+   End:
    vim: et syn=rst tw=79

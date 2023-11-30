@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -28,7 +28,7 @@
  *
  * An instance of this class is used internally in {@link ezcPersistentSession}
  * and takes care for saving and updating objects.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  * @access private
@@ -40,7 +40,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
      *
      * Caches ID generators so that of every generator class only 1 object
      * exists.
-     * 
+     *
      * @var array(string=>ezcPersistentIdentifierGenerator)
      */
     private $idGeneratorRegistry = array();
@@ -166,7 +166,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
         }
 
         $relation = $def->relations[$relatedClass];
-        
+
         // New multi-relations for a single class
         if ( $relation instanceof ezcPersistentRelationCollection )
         {
@@ -295,7 +295,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
     private function saveInternal(
         $object,
         $doPersistenceCheck = true,
-        ezcPersistentIdentifierGenerator $idGenerator = null 
+        ezcPersistentIdentifierGenerator $idGenerator = null
     )
     {
         $class = get_class( $object );
@@ -321,7 +321,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
 
         // Atomic operation
         $this->database->beginTransaction();
-        
+
         // Let presave id generator do its work.
         $idGenerator->preSave( $def, $this->database, $q );
 
@@ -348,7 +348,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
         // Everything seems to be fine, lets commit the queries to the database
         // and update the object with its newly created ID.
         $this->database->commit();
-        
+
         $state[$def->idProperty->propertyName] = $id;
         $object->setState( $state );
     }
@@ -401,8 +401,8 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
      * ezcPersistentIdentifierGenerator} class defined in $def. If a
      * corresponding object does not exist, it is created and stored. The
      * fitting generator object is then returned.
-     * 
-     * @param ezcPersistentObjectDefinition $def 
+     *
+     * @param ezcPersistentObjectDefinition $def
      * @return ezcPersistentIdentifierGenerator
      */
     private function getIdGenerator( ezcPersistentObjectDefinition $def )
@@ -448,7 +448,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
      *
      * Binds all property values contained in $state to the given query $q, as
      * defined by $def.
-     * 
+     *
      * @param ezcQueryUpdate|ezcQueryInsert $q
      * @param ezcPersistentObjectDefinition $def
      * @param array $state
@@ -581,12 +581,12 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
 
     /**
      * Inserts the relation record for a many-to-many relation.
-     * 
-     * @param ezcPersistentManyToManyRelation $relation 
+     *
+     * @param ezcPersistentManyToManyRelation $relation
      * @param ezcPersistentObjectDefinition $def
      * @param ezcPersistentObjectDefinition $relatedDef
-     * @param array $objectState 
-     * @param array $relatedObjectState 
+     * @param array $objectState
+     * @param array $relatedObjectState
      */
     private function insertRelationRecord(
         ezcPersistentManyToManyRelation $relation,

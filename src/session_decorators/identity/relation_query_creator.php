@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -31,7 +31,7 @@
  * generate a {@link ezcQuerySelect} object to fetch related objects for a
  * certain object. The results of the generated query are then extracted using
  * {@link ezcPersistentIdentityRelationObjectExtractor}.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  * @access private
@@ -40,32 +40,32 @@ class ezcPersistentIdentityRelationQueryCreator
 {
     /**
      * Definition Manager.
-     * 
+     *
      * @var ezcPersistentDefinitionManager
      */
     protected $defManager;
 
     /**
-     * Database handler. 
-     * 
+     * Database handler.
+     *
      * @var ezcDbHandler
      */
     protected $db;
 
     /**
-     * Aliases to be registered in query objects. 
-     * 
+     * Aliases to be registered in query objects.
+     *
      * @var array(string=>string)
      */
     protected $aliases = array();
 
     /**
-     * Creates a new query generator. 
+     * Creates a new query generator.
      *
      * Creates a new query generator that will receive needed persistentence
      * definitions from $defManager.
-     * 
-     * @param ezcPersistentDefinitionManager $defManager 
+     *
+     * @param ezcPersistentDefinitionManager $defManager
      * @param ezcDbHandler $database
      */
     public function __construct( ezcPersistentDefinitionManager $defManager, ezcDbHandler $database )
@@ -79,10 +79,10 @@ class ezcPersistentIdentityRelationQueryCreator
      *
      * This method generates a query that loads the object of $class with $id
      * and its related objects as specified by $relations.
-     * 
-     * @param string $class 
-     * @param mixed $id 
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations 
+     *
+     * @param string $class
+     * @param mixed $id
+     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
      * @return ezcDbQuerySelect
      */
     public function createLoadQuery( $class, $id, array $relations )
@@ -111,8 +111,8 @@ class ezcPersistentIdentityRelationQueryCreator
      *
      * This method generates a query that finds objects of $class together with
      * their related objects as defined in $relations.
-     * 
-     * @param mixed $class 
+     *
+     * @param mixed $class
      * @param array(string=>ezcPersistentRelationFindDefinition) $relations
      * @return ezcPersistentFindWithRelationsQuery
      */
@@ -137,8 +137,8 @@ class ezcPersistentIdentityRelationQueryCreator
      *
      * This method generates a basic find query for the table/class defined in
      * $srcDef, with relation pre-fetching for $relations.
-     * 
-     * @param ezcPersistentObjectDefinition $srcDef 
+     *
+     * @param ezcPersistentObjectDefinition $srcDef
      * @param array(string=>ezcPersistentRelationFindDefinition) $relations
      * @return ezcQuerySelect
      */
@@ -172,7 +172,7 @@ class ezcPersistentIdentityRelationQueryCreator
                 $property->propertyName
             );
         }
-        
+
         $this->createSelects( $q, $relations );
 
         $q->from( $this->db->quoteIdentifier( $srcDef->table ) );
@@ -191,8 +191,8 @@ class ezcPersistentIdentityRelationQueryCreator
      * stored inside the {@link ezcPersistentRelationFindDefinition} objects
      * the correspond to.
      *
-     * @param ezcPersistentObjectDefinition $srcDef 
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations 
+     * @param ezcPersistentObjectDefinition $srcDef
+     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
      */
     protected function fetchDefinitions( ezcPersistentObjectDefinition $srcDef, array $relations )
     {
@@ -212,7 +212,7 @@ class ezcPersistentIdentityRelationQueryCreator
             $relation->relationDefinition = $srcRelDef;
 
             $relation->definition = $this->defManager->fetchDefinition( $relation->relatedClass );
-            
+
             if ( $relation->furtherRelations !== array() )
             {
                 $this->fetchDefinitions( $relation->definition, $relation->furtherRelations );
@@ -227,9 +227,9 @@ class ezcPersistentIdentityRelationQueryCreator
      * query $q. Columns are selected using an alias to identify which relation
      * they belong too, created using the tables alias. In addition, aliases
      * are created in the query $q, for usage ease.
-     * 
-     * @param ezcQuerySelect $q 
-     * @param array(ezcPersistentRelationFindDefinition) $relations 
+     *
+     * @param ezcQuerySelect $q
+     * @param array(ezcPersistentRelationFindDefinition) $relations
      */
     protected function createSelects( ezcQuerySelect $q, array $relations )
     {
@@ -283,8 +283,8 @@ class ezcPersistentIdentityRelationQueryCreator
      * Returns the alias for $column from $table to be used in the select
      * query. If $quote is set to false, the alias name will not be quoted as
      * an identifier.
-     * 
-     * @param string $table 
+     *
+     * @param string $table
      * @param string $property
      * @param bool $quote
      * @return string
@@ -309,9 +309,9 @@ class ezcPersistentIdentityRelationQueryCreator
      * Returns the full qualified column name for the $column in $table.
      *
      * The returned qualified name already contains identifier quotings.
-     * 
-     * @param string $table 
-     * @param string $column 
+     *
+     * @param string $table
+     * @param string $column
      * @return string
      */
     protected function getColumnName( $table, $column )
@@ -322,17 +322,17 @@ class ezcPersistentIdentityRelationQueryCreator
             $this->db->quoteIdentifier( $column )
         );
     }
-    
+
     /**
      * Creates the joins to select $relations from $srcTableAlias.
      *
      * Creates the necessary JOIN statements in $q to select all related
      * objects defined by $relations, seen from $srcTableAlias point of view.
      * $srcTableAlias must already be the alias table name of the source table.
-     * 
-     * @param ezcQuerySelect $q 
-     * @param string $srcTableAlias 
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations 
+     *
+     * @param ezcQuerySelect $q
+     * @param string $srcTableAlias
+     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
      */
     protected function createJoins( ezcQuerySelect $q, $srcTableAlias, array $relations )
     {
@@ -348,11 +348,11 @@ class ezcPersistentIdentityRelationQueryCreator
      *
      * Detects if $relation needs a n:m-relation JOIN or just a simple join and
      * dispatches to the correct methods.
-     * 
-     * @param ezcQuerySelect $q 
-     * @param string $srcTableAlias 
+     *
+     * @param ezcQuerySelect $q
+     * @param string $srcTableAlias
      * @param string $dstTableAlias
-     * @param ezcPersistentRelationFindDefinition $relation 
+     * @param ezcPersistentRelationFindDefinition $relation
      */
     protected function createJoin( ezcQuerySelect $q, $srcTableAlias, $dstTableAlias, ezcPersistentRelationFindDefinition $relation )
     {
@@ -372,11 +372,11 @@ class ezcPersistentIdentityRelationQueryCreator
      * Uses the aliases defined in $relation and the relations definition to
      * create 2 LEFT JOIN statements in $q. These 2 JOINs are used to fetch the
      * objects defined in $relation.
-     * 
-     * @param ezcQuerySelect $q 
-     * @param string $srcTableAlias 
-     * @param string $dstTableAlias 
-     * @param ezcPersistentRelationFindDefinition $relation 
+     *
+     * @param ezcQuerySelect $q
+     * @param string $srcTableAlias
+     * @param string $dstTableAlias
+     * @param ezcPersistentRelationFindDefinition $relation
      */
     protected function createComplexJoin( ezcQuerySelect $q, $srcTableAlias, $dstTableAlias, ezcPersistentRelationFindDefinition $relation )
     {
@@ -449,11 +449,11 @@ class ezcPersistentIdentityRelationQueryCreator
      * Creates a simple LEFT JOIN using the aliases defined in $relation and
      * the $srcTableAlias, to fetch all objects defined by $relation, which are
      * related to the source object, fetched by $srcTableAlias.
-     * 
-     * @param ezcQuerySelect $q 
-     * @param string $srcTableAlias 
-     * @param string $dstTableAlias 
-     * @param ezcPersistentRelationFindDefinition $relation 
+     *
+     * @param ezcQuerySelect $q
+     * @param string $srcTableAlias
+     * @param string $dstTableAlias
+     * @param ezcPersistentRelationFindDefinition $relation
      */
     protected function createSimpleJoin( ezcQuerySelect $q, $srcTableAlias, $dstTableAlias, ezcPersistentRelationFindDefinition $relation )
     {
@@ -490,9 +490,9 @@ class ezcPersistentIdentityRelationQueryCreator
 
     /**
      * Register an alias to be used in {@link ezcPersistentFindQuery}.
-     * 
-     * @param string $identifier 
-     * @param string $alias 
+     *
+     * @param string $identifier
+     * @param string $alias
      * @return void
      */
     protected function registerAlias( $identifier, $alias )

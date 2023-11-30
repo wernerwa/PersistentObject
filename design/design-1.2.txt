@@ -76,7 +76,7 @@ java.util.Set These types store a certain number of objects, while each
 key/object pair is unique.
 
 One-to-many relations are simpler than many-to-many relations, since they
-don't have the need of a connection table inside the RDB. 
+don't have the need of a connection table inside the RDB.
 
 Collection mappings allow the definition of a "fetch" type, which defines how
 related objects are fetched from the database. Possible configuration values
@@ -209,7 +209,7 @@ database update. Both factors would make the usage of PersistentObject
 unnecessarily slow.
 
 Instead we will enhance the currently available methods of ezcPersistentSession
-to be able to deal with multiple objects at once: 
+to be able to deal with multiple objects at once:
 
 ezcPersistentSession->save( mixed $object )
   The save method will accept not only single objects, but also arrays of
@@ -233,7 +233,7 @@ Pre-loading
     <?php
     // Setup the query to load all persons from Dortmund and their contact data
     // and employer.
-    
+
     $q = $session->createFindQuery( "Person" );
     $q->where(
         $q->expr->eq( "City", "Dortmund" )
@@ -241,7 +241,7 @@ Pre-loading
         "contacts", $q->expr->eq( "persons.id", "contacts.person_id" )
     )->leftJoin(
         "employers", $q->expr->eq( "persons.employer_id", "employers.id" )
-    )->orderBy( 
+    )->orderBy(
         "person.surname"
     )->orderBy(
         "person.firstname"
@@ -249,7 +249,7 @@ Pre-loading
 
     // Fetch the desired person objects and all related contact and employer
     // objects in the background.
-    
+
     $persons = $session->find( $q, "Person" );
 
     foreach ( $persons as $person )
@@ -259,16 +259,16 @@ Pre-loading
         // Person -> Contact is a one-to-many relation (note the use of
         // getRelatedObjects() here). The objects have already been fetched so
         // no new query will be submitted.
-        
+
         foreach ( $session->getRelatedObjects( $person, "Contact" ) as $contact )
         {
             echo "    $contact->email\n";
         }
-        
+
         // Person -> Employer is a many-to-one relation (note the usage of
         // getRelatedObject() here). The related object was already fetched so
         // no new query will be submitted.
-        
+
         echo "The employer is: ", $session->getRelatedObject( $person, "Employer" );
     }
     ?>
@@ -284,14 +284,14 @@ On-demand-loading
     $q = $session->createFindQuery( "Person" );
     $q->where(
         $q->expr->eq( "City", "Dortmund" )
-    )->orderBy( 
+    )->orderBy(
         "person.surname"
     )->orderBy(
         "person.firstname"
     );
 
     // Fetch the desired person objects
-    
+
     $persons = $session->find( $q, "Person" );
 
     foreach ( $persons as $person )
@@ -301,16 +301,16 @@ On-demand-loading
         // Person -> Contact is a one-to-many relation. The objects are not
         // pre-loaded so a new SELECT query is run to fetch them from the
         // database.
-        
+
         foreach ( $session->getRelatedObjects( $person, "Contact" ) as $contact )
         {
             echo "    $contact->email\n";
         }
-        
+
         // Person -> Employer is a many-to-one relation. The related object is
         // not pre-loaded so a new SELECT query is run to fetch it from the
         // database.
-        
+
         echo "The employer is: ", $session->getRelatedObject( $person, "Employer" );
     }
     ?>
@@ -329,7 +329,7 @@ Inverse relation load
         $q->expr->eq( "name", "eZ systems" )
     )->leftJoin(
         "persons",
-        $q->expr->and( 
+        $q->expr->and(
             $q->expr->eq( "persons.employer_id", "employers.id" ),
             $q->expr->lt( "salary", 3000 )
         )
@@ -396,7 +396,7 @@ Updating / deleting related objects
     );
 
     // Fetch the desired person objects
-    
+
     $persons = $session->find( $q, "Person" );
     foreach ( $persons as $person )
     {
@@ -457,7 +457,7 @@ of the objects to fetch and also allows you to specify multiple keys to match.
 
 The struct ezcPersistentSingleTableMap contains the following properties, which
 can be assigned to the constructor in the given order: ::
-    
+
     class ezcPersistentSingleTableMap
     {
         private $sourceColumn;
@@ -481,11 +481,11 @@ Many-to-many relations
     // Many-to-many relations need at least 2 mappings: 1 incoming and 1
     // outgoing for the relation table.
     $def->relations["Address"]->columnMap = array(
-        new ezcPersistentDoubleTableMap( 
+        new ezcPersistentDoubleTableMap(
             "id",
             "id"
             "person_id"
-            "address_id", 
+            "address_id",
         ),
     );
     ?>
@@ -504,7 +504,7 @@ can also be assigned through the constructor in the given order: ::
     {
         private $sourceColumn;
         private $destinationColumn;
-        
+
         private $relationSourceColumn;
         private $relationDestinationColumn;
 
@@ -532,7 +532,7 @@ avoid constraint violations within the database, if the same relation is added
 twice. Setting "reverse" to true indicates, that there is already a relation
 defined in the opposite direction, which is the main relation. The effect in
 usage is here, that a call to ezcPersistentSession->addRelatedObjects(
-$address, $person ) will result in an exception, while the call to 
+$address, $person ) will result in an exception, while the call to
 ezcPersistentSession->addRelatedObjects( $person, $address ) has the expected
 result.
 
@@ -559,7 +559,7 @@ Java and used in Hibernate. The largest issue is, that we cannot change classes 
 compile-/runtime, which prevents us from adding methods to classes after they
 have been defined. Since we do not want to force persistent classes to extend a
 common base class, we cannot use cute features like overloading to make a nicer
-API. 
+API.
 
 While discussing this, the idea came up to offer a common base class, as an
 option, but make it not necessary. This approach would allow us to e.g.
@@ -622,5 +622,5 @@ Known issues
    Local Variables:
    mode: rst
    fill-column: 79
-   End: 
+   End:
    vim: et syn=rst tw=79

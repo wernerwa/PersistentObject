@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -34,7 +34,7 @@
  * @property-read bool $isRestricted
  *                Whether the query has been restricted using a {@link where()}
  *                condition.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  */
@@ -48,7 +48,7 @@ class ezcPersistentFindWithRelationsQuery extends ezcPersistentFindQuery
      * fetched by this query.
      *
      * @see ezcPerisistentSessionIdenityDecorator::createFindWithRelationsQuery()
-     * 
+     *
      * @param ezcQuerySelect $query
      * @param string $className
      * @param array(string=>ezcPersistentRelationFindDefinition) $relations
@@ -101,7 +101,7 @@ class ezcPersistentFindWithRelationsQuery extends ezcPersistentFindQuery
      * This query object does not allow any other calls than {where()} and
      * {groupBy()}. Therefore, this method throws an exception, for any other
      * call.
-     * 
+     *
      * @param string $methodName
      * @param array $arguments
      * @return mixed
@@ -131,8 +131,8 @@ class ezcPersistentFindWithRelationsQuery extends ezcPersistentFindQuery
 
     /**
      * Property set access.
-     * 
-     * @param string $propertyName 
+     *
+     * @param string $propertyName
      * @param mixed $properyValue
      * @ignore
      *

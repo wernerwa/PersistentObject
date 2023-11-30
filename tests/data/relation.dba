@@ -1,12 +1,12 @@
-<?php 
+<?php
 return array (
-  0 => 
+  0 =>
   array (
-    'PO_addresses' => 
+    'PO_addresses' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'city' => 
+        'city' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 100,
@@ -15,7 +15,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'id' => 
+        'id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -24,7 +24,7 @@ return array (
            'autoIncrement' => true,
            'unsigned' => false,
         )),
-        'street' => 
+        'street' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 100,
@@ -33,7 +33,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'type' => 
+        'type' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 10,
@@ -42,7 +42,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'zip' => 
+        'zip' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 5,
@@ -52,13 +52,13 @@ return array (
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'id' => 
+            'id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -68,11 +68,11 @@ return array (
         )),
       ),
     )),
-    'PO_birthdays' => 
+    'PO_birthdays' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'birthday' => 
+        'birthday' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -81,7 +81,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'person_id' => 
+        'person_id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -91,13 +91,13 @@ return array (
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'person_id' => 
+            'person_id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -107,11 +107,11 @@ return array (
         )),
       ),
     )),
-    'PO_employers' => 
+    'PO_employers' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'id' => 
+        'id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -120,7 +120,7 @@ return array (
            'autoIncrement' => true,
            'unsigned' => false,
         )),
-        'name' => 
+        'name' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 100,
@@ -130,13 +130,13 @@ return array (
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'id' => 
+            'id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -146,11 +146,11 @@ return array (
         )),
       ),
     )),
-    'PO_friends' => 
+    'PO_friends' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'friend_id' => 
+        'friend_id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -159,7 +159,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'id' => 
+        'id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -169,17 +169,17 @@ return array (
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'friend_id' => 
+            'friend_id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
-            'id' => 
+            'id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -189,11 +189,11 @@ return array (
         )),
       ),
     )),
-    'PO_persons' => 
+    'PO_persons' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'employer' => 
+        'employer' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -202,7 +202,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'firstname' => 
+        'firstname' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 100,
@@ -211,7 +211,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'id' => 
+        'id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -220,7 +220,7 @@ return array (
            'autoIncrement' => true,
            'unsigned' => false,
         )),
-        'surname' => 
+        'surname' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 100,
@@ -230,13 +230,13 @@ return array (
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'id' => 
+            'id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -246,11 +246,11 @@ return array (
         )),
       ),
     )),
-    'PO_persons_addresses' => 
+    'PO_persons_addresses' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'address_id' => 
+        'address_id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -259,7 +259,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'person_id' => 
+        'person_id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -269,17 +269,17 @@ return array (
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'address_id' => 
+            'address_id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
-            'person_id' => 
+            'person_id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -289,11 +289,11 @@ return array (
         )),
       ),
     )),
-    'PO_secondpersons_addresses' => 
+    'PO_secondpersons_addresses' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'address_id' => 
+        'address_id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -302,7 +302,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'person_firstname' => 
+        'person_firstname' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 100,
@@ -311,7 +311,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'person_surname' => 
+        'person_surname' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 100,
@@ -321,21 +321,21 @@ return array (
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'address_id' => 
+            'address_id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
-            'person_firstname' => 
+            'person_firstname' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
-            'person_surname' => 
+            'person_surname' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -346,7 +346,7 @@ return array (
       ),
     )),
   ),
-  1 => 
+  1 =>
   array (
   ),
 ); ?>

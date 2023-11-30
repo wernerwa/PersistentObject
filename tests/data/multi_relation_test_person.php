@@ -20,9 +20,9 @@ CREATE TABLE PO_test
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -38,49 +38,49 @@ class MultiRelationTestPerson
     public $name   = null;
     public $mother = null;
     public $father = null;
-                
+
     /**
      * Inserts some data to use for testing.
      */
     public static function insertData()
     {
         $db = ezcDbInstance::get();
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_person" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_person" ) . " ("
             . $db->quoteIdentifier( "name" ) . " )
                     VALUES ('Root mother without parents.')" );
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_person" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_person" ) . " ("
             . $db->quoteIdentifier( "name" ) . " )
                     VALUES ('Root father without parents.')" );
 
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_person" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_person" ) . " ("
             . $db->quoteIdentifier( "name" ) . ", " . $db->quoteIdentifier( "mother" ) . ", "
             . $db->quoteIdentifier( "father" ) . " )
                     VALUES ('First level child.', 1, 2)" );
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_person" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_person" ) . " ("
             . $db->quoteIdentifier( "name" ) . ", " . $db->quoteIdentifier( "mother" ) . ", "
             . $db->quoteIdentifier( "father" ) . " )
                     VALUES ('Second first level child.', 1, 2)" );
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_person" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_person" ) . " ("
             . $db->quoteIdentifier( "name" ) . ", " . $db->quoteIdentifier( "mother" ) . ", "
             . $db->quoteIdentifier( "father" ) . " )
                     VALUES ('Third first level child.', 1, 2)" );
 
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " ("
             . $db->quoteIdentifier( "person" ) . ", " . $db->quoteIdentifier( "sibling" ) . " )
                     VALUES (3, 4)" );
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " ("
             . $db->quoteIdentifier( "person" ) . ", " . $db->quoteIdentifier( "sibling" ) . " )
                     VALUES (3, 5)" );
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " ("
             . $db->quoteIdentifier( "person" ) . ", " . $db->quoteIdentifier( "sibling" ) . " )
                     VALUES (4, 3)" );
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " ("
             . $db->quoteIdentifier( "person" ) . ", " . $db->quoteIdentifier( "sibling" ) . " )
                     VALUES (4, 5)" );
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " ("
             . $db->quoteIdentifier( "person" ) . ", " . $db->quoteIdentifier( "sibling" ) . " )
                     VALUES (5, 3)" );
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_sibling" ) . " ("
             . $db->quoteIdentifier( "person" ) . ", " . $db->quoteIdentifier( "sibling" ) . " )
                     VALUES (5, 4)" );
     }

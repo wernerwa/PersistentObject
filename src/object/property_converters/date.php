@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -47,8 +47,8 @@ class ezcPersistentPropertyDateTimeConverter implements ezcPersistentPropertyCon
      * The given integer value $databaseValue is handled as a date/time value
      * in unix timestamp representation. A corresponding DateTime object is
      * returned, representing the same date/time value.
-     * 
-     * @param int|null $databaseValue 
+     *
+     * @param int|null $databaseValue
      * @return DateTime|null
      *
      * @throws ezcBaseValueException
@@ -77,8 +77,8 @@ class ezcPersistentPropertyDateTimeConverter implements ezcPersistentPropertyCon
      * The method expects a DateTime object in $propertyValue and returns the
      * date/time value represented by it as an integer value in unix timestamp
      * format.
-     * 
-     * @param DateTime|null $propertyValue 
+     *
+     * @param DateTime|null $propertyValue
      * @return int|null
      *
      * @throws ezcBaseValueException
@@ -102,8 +102,8 @@ class ezcPersistentPropertyDateTimeConverter implements ezcPersistentPropertyCon
      *
      * This methid must be implemented to allow proper de-serialization of
      * converter objects, when they are exported using {@link var_export()}.
-     * 
-     * @param array $state 
+     *
+     * @param array $state
      * @return ezcPersistentPropertyConverter
      */
     public static function __set_state( array $state )

@@ -23,8 +23,8 @@ class customLazyPersistentSessionConfiguration implements ezcBaseConfigurationIn
     }
 }
 
-ezcBaseInit::setCallback( 
-    'ezcInitPersistentSessionInstance', 
+ezcBaseInit::setCallback(
+    'ezcInitPersistentSessionInstance',
     'customLazyPersistentSessionConfiguration'
 );
 

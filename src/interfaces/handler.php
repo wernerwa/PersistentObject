@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -30,7 +30,7 @@
  * This base class should be used to realized handler classes for {@link
  * ezcPersistentSession}, which are used to structure the methods provided by
  * {@link ezcPersistentSession}.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  * @access private
@@ -39,24 +39,24 @@ abstract class ezcPersistentSessionHandler
 {
     /**
      * Session object this instance belongs to.
-     * 
+     *
      * @var ezcPersistentSession
      */
     protected $session;
 
     /**
-     * Database connection from {@link $session}. 
+     * Database connection from {@link $session}.
      *
      * Kept to avoid a call to {@link ezcPersistentSession->__get()} whenever
      * the database connection is used.
-     * 
+     *
      * @var ezcDbHandler
      */
     protected $database;
 
     /**
-     * Definition manager from {@link $session}. 
-     * 
+     * Definition manager from {@link $session}.
+     *
      * Kept to avoid a call to {@link ezcPersistentSession->__get()} whenever
      * the definition manager is used.
      *
@@ -66,8 +66,8 @@ abstract class ezcPersistentSessionHandler
 
     /**
      * Creates a new load handler.
-     * 
-     * @param ezcPersistentSession $session 
+     *
+     * @param ezcPersistentSession $session
      */
     public function __construct( ezcPersistentSession $session )
     {

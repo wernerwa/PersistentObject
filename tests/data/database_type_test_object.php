@@ -16,9 +16,9 @@ CREATE TABLE IF NOT EXISTS `PO_database_type_test` (
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -35,7 +35,7 @@ class DatabaseTypeTestObject
     public $int    = null;
     public $str    = null;
     public $lob    = null;
-                
+
     /**
      * Inserts some data to use for testing.
      */
@@ -43,12 +43,12 @@ class DatabaseTypeTestObject
     {
         $db = ezcDbInstance::get();
         $stmt = $db->prepare(
-            "insert into " . $db->quoteIdentifier( "PO_database_type_test" ) . 
+            "insert into " . $db->quoteIdentifier( "PO_database_type_test" ) .
             " (" .
                 $db->quoteIdentifier( "bool" ) . ", " .
                 $db->quoteIdentifier( "int" )  . ", " .
                 $db->quoteIdentifier( "str" )  . ", " .
-                $db->quoteIdentifier( "lob" )  . 
+                $db->quoteIdentifier( "lob" )  .
             " ) VALUES ( :bool, :int, :str, :lob )"
         );
 

@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -96,21 +96,21 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
 
     /**
      * The persistent session this object wraps.
-     * 
+     *
      * @var ezcPersistentSession
      */
     protected $session;
 
     /**
-     * Query creator for relation pre-fetching. 
-     * 
+     * Query creator for relation pre-fetching.
+     *
      * @var ezcPersistentIdentityRelationQueryCreator
      */
     private $queryCreator;
 
     /**
-     * Related object extractor used for pre-fetching. 
-     * 
+     * Related object extractor used for pre-fetching.
+     *
      * @var ezcPersistentIdentityRelationObjectExtractor
      */
     private $objectExtractor;
@@ -122,9 +122,9 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      * to issue the actual database operations. Object identities are stored in
      * the $identityMap. The $options influence the behavior of the identity
      * session, like setting the $refetch option to force reloading of objects.
-     * 
-     * @param ezcPersistentSession $session 
-     * @param ezcPersistentIdentityMap $identityMap 
+     *
+     * @param ezcPersistentSession $session
+     * @param ezcPersistentIdentityMap $identityMap
      * @param ezcPersistentSessionIdentityDecoratorOptions $options
      */
     public function __construct( ezcPersistentSession $session, ezcPersistentIdentityMap $identityMap, ezcPersistentSessionIdentityDecoratorOptions $options = null )
@@ -170,7 +170,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
 
         $identity = $this->session->load( $class, $id );
         $idMap->setIdentity( $identity );
-        
+
         return $identity;
     }
 
@@ -208,7 +208,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
         {
             $idMap->setIdentity( $identity );
         }
-        
+
         return $identity;
     }
 
@@ -236,7 +236,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
     public function loadIntoObject( $object, $id )
     {
         $idMap = $this->properties['identityMap'];
-        
+
         $class = get_class( $object );
 
         if ( !$this->properties['options']->refetch )
@@ -330,7 +330,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      * Identity mapping comes into action in the following example:
      * <code>
      * <?php
-     * 
+     *
      * $person = $session->load( 'Person', 23 );
      *
      * $q = $session->createFindQuery( 'Person' );
@@ -378,9 +378,9 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      *
      * Performs the find operation and also registeres the related objects in
      * the {@link ezcPersistentIdentityMap} as defined by the query.
-     * 
-     * @param ezcPersistentFindWithRelationsQuery $query 
-     * @param string $class 
+     *
+     * @param ezcPersistentFindWithRelationsQuery $query
+     * @param string $class
      * @return array(ezcPersistentObject)
      */
     private function findWithRelations( ezcPersistentFindWithRelationsQuery $query )
@@ -401,9 +401,9 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      *
      * Warps around {@link ezcPersistentSession::find()} and registeres found
      * objects with the {@link ezcPersistentIdentityMap}.
-     * 
-     * @param ezcQuerySelect|ezcFindQuery $query 
-     * @param string $class 
+     *
+     * @param ezcQuerySelect|ezcFindQuery $query
+     * @param string $class
      * @return array(object($class))
      */
     private function findDefault( $query, $class )
@@ -441,9 +441,9 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
 
     /**
      * Performs the actual find.
-     * 
-     * @param ezcQuerySelect|ezcPersistentFindQuery $query 
-     * @param string $class 
+     *
+     * @param ezcQuerySelect|ezcPersistentFindQuery $query
+     * @param string $class
      * @return array(object($class))
      */
     private function performFind( $query, $class = null )
@@ -465,7 +465,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
 
             $state = $object->getState();
             $id    = $state[$defs[$class]->idProperty->propertyName];
-            
+
             $identity = null;
 
             if ( !$this->properties['options']->refetch )
@@ -706,9 +706,9 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      * @see ezcPersistentFindWithRelationsQuery
      * @see find()
      * @see createFindQueryWithRelations()
-     * 
-     * @param ezcPersistentObject $object 
-     * @param string $setName 
+     *
+     * @param ezcPersistentObject $object
+     * @param string $setName
      * @return array(ezcPersistentObject)|null
      *
      * @apichange This method does not require ezcPersistentObject as a type
@@ -753,7 +753,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      *     )
      * );
      * $somePersons = $session->find( $q, 'Person' );
-     * 
+     *
      * ?>
      * </code>
      * $zipCode is the property name in the Person class, while the
@@ -774,7 +774,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
     /**
      * Returns a sub-select for the given $class to be used with $parentQuery.
      *
-     * This method creates an {@link ezcPersistentFindQuery} as a {@link 
+     * This method creates an {@link ezcPersistentFindQuery} as a {@link
      * ezcQuerySubSelect} for the given $class. The returned query has already
      * set aliases for the properties of $class, but (in contrast to the query
      * returned by {@link createFindQuery()}) does not have the selection of all
@@ -788,9 +788,9 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      * </code>
      *
      * manually to select the fields you desire.
-     * 
-     * @param ezcPersistentFindQuery $parentQuery 
-     * @param string $class 
+     *
+     * @param ezcPersistentFindQuery $parentQuery
+     * @param string $class
      * @return ezcQuerySubSelect
      */
     public function createSubQuery( ezcPersistentFindQuery $parentQuery, $class )
@@ -870,9 +870,9 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      * @see ezcPersistentFindWithRelationsQuery
      * @see ezcPersistentRelationFindDefinition
      * @see ezcPersistentIdentityMap
-     * 
-     * @param string $class 
-     * @param array(ezcPersistentRelationFindDefinition) $relations 
+     *
+     * @param string $class
+     * @param array(ezcPersistentRelationFindDefinition) $relations
      * @return ezcPersistentFindWithRelationsQuery
      */
     public function createFindQueryWithRelations( $class, array $relations )
@@ -919,7 +919,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
             $originalQuery->query,
             $originalQuery->className
         );
-        
+
         if ( $setName !== null )
         {
             $q->relationSetName = $setName;
@@ -954,7 +954,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
         $class = get_class( $object );
         $def   = $this->definitionManager->fetchDefinition( $class );
         $state = $object->getState();
-        
+
         // Sanity checks
         if ( !$this->properties['options']->refetch && isset( $state[$def->idProperty->propertyName] ) )
         {
@@ -1162,7 +1162,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
         $def = $this->session->definitionManager->fetchDefinition( $class );
         $state = $object->getState();
         $id = $state[$def->idProperty->propertyName];
-        
+
         $this->identityMap->removeIdentity( $class, $id );
     }
 
@@ -1289,12 +1289,12 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      * are loaded and stored in the identity map. For each of these objects of
      * class relatedClass_1, all related objects of class deeperRelatedClass_1
      * are loaded and also stored in the identity map.
-     * 
+     *
      * @see createFindQueryWithRelations()
      *
-     * @param string $class 
-     * @param string $id 
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations 
+     * @param string $class
+     * @param string $id
+     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
      * @return ezcPersistentObject
      */
     public function loadWithRelatedObjects( $class, $id, array $relations )
@@ -1319,8 +1319,8 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
     /**
      * Returns if $relatedObject is related to $sourceObject.
      *
-     * Checks the relation conditions between $sourceObject and $relatedObject 
-     * and returns true, if $relatedObject is related to $sourceObject, 
+     * Checks the relation conditions between $sourceObject and $relatedObject
+     * and returns true, if $relatedObject is related to $sourceObject,
      * otherwise false. Relation state is determined through the identity map,
      * in case the relation between $sourceObject and $relatedObject has been
      * recorded there. Otherwise this method dispatches to
@@ -1328,16 +1328,16 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      *
      * In case multiple relations are defined between the
      * classes of $sourceObject and $relatedObject, the $relationName parameter
-     * becomes mandatory. If it is not provided in this case, an {@link 
+     * becomes mandatory. If it is not provided in this case, an {@link
      * ezcPersistentUndeterministicRelationException} is thrown.
      *
-     * Note that checking relations of type {@link 
-     * ezcPersistentManyToManyRelation} will issue a database query, if the 
-     * relation is not recorded in the identity map. Other relations will not 
+     * Note that checking relations of type {@link
+     * ezcPersistentManyToManyRelation} will issue a database query, if the
+     * relation is not recorded in the identity map. Other relations will not
      * perform this query at all.
-     * 
-     * @param ezcPersistentObject $sourceObj 
-     * @param ezcPersistentObject $relatedObj 
+     *
+     * @param ezcPersistentObject $sourceObj
+     * @param ezcPersistentObject $relatedObj
      * @param string $relationName
      * @return bool
      */
@@ -1468,7 +1468,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      * Property get access.
      *
      * Simply returns a given property.
-     * 
+     *
      * @throws ezcBasePropertyNotFoundException
      *         If a the value for the property propertys is not an instance of
      * @param string $propertyName The name of the property to get.
@@ -1494,7 +1494,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      * Returns if a property exists.
      *
      * Returns true if the property exists in the {@link $properties} array
-     * (even if it is null) and false otherwise. 
+     * (even if it is null) and false otherwise.
      *
      * @param string $propertyName Option name to check for.
      * @return void

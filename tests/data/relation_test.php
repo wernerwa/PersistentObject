@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -53,12 +53,12 @@ class RelationTest
         $db->exec( "INSERT INTO " . $db->quoteIdentifier( "PO_persons_addresses" ) . " ( " . $db->quoteIdentifier( "person_id" ) . ", " . $db->quoteIdentifier( "address_id" ) . ") VALUES ( 2, 3)" );
         $db->exec( "INSERT INTO " . $db->quoteIdentifier( "PO_persons_addresses" ) . " ( " . $db->quoteIdentifier( "person_id" ) . ", " . $db->quoteIdentifier( "address_id" ) . ") VALUES ( 2, 4)" );
         $db->exec( "INSERT INTO " . $db->quoteIdentifier( "PO_persons_addresses" ) . " ( " . $db->quoteIdentifier( "person_id" ) . ", " . $db->quoteIdentifier( "address_id" ) . ") VALUES ( 3, 4)" );
-        
+
         $db->exec( "INSERT INTO " . $db->quoteIdentifier( "PO_secondpersons_addresses" ) . " ( " . $db->quoteIdentifier( "person_firstname" ) . ", " . $db->quoteIdentifier( "person_surname" ) . ", " . $db->quoteIdentifier( "address_id" ) . ") VALUES ( " . $db->quote( "Theodor" ) . ", " . $db->quote( "Gopher" ) . ", 1)" );
 
         $db->exec( "INSERT INTO " . $db->quoteIdentifier( "PO_birthdays" ) . " (" . $db->quoteIdentifier( "person_id" ) . ", " . $db->quoteIdentifier( "birthday" ) . ") VALUES (1, 327535201)"  );
         $db->exec( "INSERT INTO " . $db->quoteIdentifier( "PO_birthdays" ) . " (" . $db->quoteIdentifier( "person_id" ) . ", " . $db->quoteIdentifier( "birthday" ) . ") VALUES (2, -138243599)" );
-        
+
         $db->exec( "INSERT INTO " . $db->quoteIdentifier( "PO_friends" ) . " (" . $db->quoteIdentifier( "id" ) . ", " . $db->quoteIdentifier( "friend_id" ) . ") VALUES (1, 2)" );
         $db->exec( "INSERT INTO " . $db->quoteIdentifier( "PO_friends" ) . " (" . $db->quoteIdentifier( "id" ) . ", " . $db->quoteIdentifier( "friend_id" ) . ") VALUES (1, 3)" );
         $db->exec( "INSERT INTO " . $db->quoteIdentifier( "PO_friends" ) . " (" . $db->quoteIdentifier( "id" ) . ", " . $db->quoteIdentifier( "friend_id" ) . ") VALUES (2, 1)" );

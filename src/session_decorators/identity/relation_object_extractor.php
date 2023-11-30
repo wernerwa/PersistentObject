@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -39,21 +39,21 @@ class ezcPersistentIdentityRelationObjectExtractor
 {
     /**
      * Definition manager.
-     * 
+     *
      * @var ezcPersistentDefinitionManager
      */
     protected $defManager;
 
     /**
      * Identity map.
-     * 
+     *
      * @var ezcPersistentIdentityMap
      */
     protected $idMap;
 
     /**
-     * Identity session options. 
-     * 
+     * Identity session options.
+     *
      * @var ezcPersistentSessionIdentityDecoratorOptions
      */
     protected $options;
@@ -65,9 +65,9 @@ class ezcPersistentIdentityRelationObjectExtractor
      * from $defManager and uses $idMap to store the extracted objects and to
      * check if their identities already exist. $options are the options used
      * by the decorator using this instance.
-     * 
+     *
      * @param ezcPersistentIdentityMap $idMap
-     * @param ezcPersistentDefinitionManager $defManager 
+     * @param ezcPersistentDefinitionManager $defManager
      * @param ezcPersistentSessionIdentityDecoratorOptions $options
      */
     public function __construct( ezcPersistentIdentityMap $idMap, ezcPersistentDefinitionManager $defManager, ezcPersistentSessionIdentityDecoratorOptions $options )
@@ -85,11 +85,11 @@ class ezcPersistentIdentityRelationObjectExtractor
      * sets can be received from the {@link ezcPersistentIdentityMap} given to
      * {@link __construct()}, after this method has finished. The method
      * returns the object of $class with $id.
-     * 
-     * @param PDOStatement $stmt 
-     * @param string $class 
-     * @param mixed $id 
-     * @param array(string=>ezcPersistentRelationFindDefinition) $relations 
+     *
+     * @param PDOStatement $stmt
+     * @param string $class
+     * @param mixed $id
+     * @param array(string=>ezcPersistentRelationFindDefinition) $relations
      *
      * @return ezcPersistentObject
      */
@@ -110,7 +110,7 @@ class ezcPersistentIdentityRelationObjectExtractor
             );
             $this->idMap->setIdentity( $object );
         }
-        
+
         foreach ( $results as $row )
         {
             $this->extractObjectsRecursive( $row, $relations, $object, array() );
@@ -125,8 +125,8 @@ class ezcPersistentIdentityRelationObjectExtractor
      * Extracts all objects of the $class defined in $q from $stmt, including
      * all related objects as defined in the $relations property of $q. Returns
      * the set of base objects found by $q.
-     * 
-     * @param PDOStatement $stmt 
+     *
+     * @param PDOStatement $stmt
      * @param ezcPersistentFindWithRelationsQuery $q
      * @return array(ezcPersistentObject)
      */
@@ -163,7 +163,7 @@ class ezcPersistentIdentityRelationObjectExtractor
                 $q->isRestricted
             );
         }
-        
+
         return $extractedBaseObjects;
     }
 
@@ -176,9 +176,9 @@ class ezcPersistentIdentityRelationObjectExtractor
      * sub-sequent relations exist for an extracted object, this method is
      * called recursively. If $restricted is set to true, named related object
      * sets will be created instead of normal related object sets.
-     * 
-     * @param array(string=>string) $row 
-     * @param array(ezcPersistentRelationFindDefinition) $relations 
+     *
+     * @param array(string=>string) $row
+     * @param array(ezcPersistentRelationFindDefinition) $relations
      * @param ezcPersistentObject $parent
      * @param bool $restricted
      */
@@ -192,7 +192,7 @@ class ezcPersistentIdentityRelationObjectExtractor
                     $tableAlias
                 )
             ];
-            
+
             if ( $id === null )
             {
                 // Related object not present, check if a relation is recorded
@@ -295,7 +295,7 @@ class ezcPersistentIdentityRelationObjectExtractor
                     );
                 }
             }
-            
+
             // Recurse
             $this->extractObjectsRecursive(
                 $row,
@@ -312,10 +312,10 @@ class ezcPersistentIdentityRelationObjectExtractor
      * Creates a new object of the class defined in $relation->relatedClass and
      * sets its state from the given $result row, as defined in $relation.
      * $tableAlias is the alias used for the specific relation in the query.
-     * 
-     * @param array(string=>string) $result 
+     *
+     * @param array(string=>string) $result
      * @param string $tableAlias
-     * @param ezcPersistentRelationFindDefinition $relation 
+     * @param ezcPersistentRelationFindDefinition $relation
      * @return ezcPersistentObject
      */
     protected function createObject( array $result, $tableAlias, ezcPersistentRelationFindDefinition $relation )
@@ -334,11 +334,11 @@ class ezcPersistentIdentityRelationObjectExtractor
      * Sets the state of $object from $result.
      *
      * Sets the state of $object from the $result given, using the $def.
-     * 
-     * @param ezcPersistentObject $object 
-     * @param ezcPersistentObjectDefinition $def 
-     * @param array $result 
-     * @param string $prefix 
+     *
+     * @param ezcPersistentObject $object
+     * @param ezcPersistentObjectDefinition $def
+     * @param array $result
+     * @param string $prefix
      */
     protected function setObjectState( $object, ezcPersistentObjectDefinition $def, array $result, $prefix = null )
     {
@@ -363,9 +363,9 @@ class ezcPersistentIdentityRelationObjectExtractor
 
     /**
      * Returns the column alias for a $column with $prefix.
-     * 
-     * @param string $column 
-     * @param string $prefix 
+     *
+     * @param string $column
+     * @param string $prefix
      * @return string
      */
     protected function getColumnAlias( $column, $prefix = null )

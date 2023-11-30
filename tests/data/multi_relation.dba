@@ -1,11 +1,11 @@
 <?php return array (
-  0 => 
+  0 =>
   array (
-    'PO_person' => 
+    'PO_person' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'father' => 
+        'father' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -14,7 +14,7 @@
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'id' => 
+        'id' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -23,7 +23,7 @@
            'autoIncrement' => true,
            'unsigned' => false,
         )),
-        'mother' => 
+        'mother' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -32,7 +32,7 @@
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'name' => 
+        'name' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'text',
            'length' => 100,
@@ -42,13 +42,13 @@
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'id' => 
+            'id' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -58,11 +58,11 @@
         )),
       ),
     )),
-    'PO_sibling' => 
+    'PO_sibling' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'person' => 
+        'person' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -71,7 +71,7 @@
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'sibling' => 
+        'sibling' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -81,17 +81,17 @@
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'person' => 
+            'person' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
-            'sibling' => 
+            'sibling' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -102,7 +102,7 @@
       ),
     )),
   ),
-  1 => 
+  1 =>
   array (
   ),
 ); ?>

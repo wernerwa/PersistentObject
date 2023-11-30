@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -25,7 +25,7 @@
  */
 /**
  * Struct representing an object identity in ezcPersistentIdentityMap.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  */
@@ -33,13 +33,13 @@ class ezcPersistentIdentity extends ezcBaseStruct
 {
     /**
      * The object.
-     * 
+     *
      * @var object
      */
     public $object;
 
     /**
-     * Related objects of $object. 
+     * Related objects of $object.
      *
      * Structure:
      *
@@ -60,13 +60,13 @@ class ezcPersistentIdentity extends ezcBaseStruct
      * );
      * ?>
      * </code>
-     * 
+     *
      * @var array(string=>ArrayObject(mixed=>ezcPersistentObject))
      */
     public $relatedObjects;
 
     /**
-     * Named sets of related objects. 
+     * Named sets of related objects.
      *
      * Structure:
      *
@@ -89,18 +89,18 @@ class ezcPersistentIdentity extends ezcBaseStruct
      * );
      * ?>
      * </code>
-     * 
+     *
      * @var array(string=>ArrayObject(mixed=>ezcPersistentObject))
      */
     public $namedRelatedObjectSets;
 
     /**
-     * Stores all references to $object in other identities. 
+     * Stores all references to $object in other identities.
      *
      * This attribute stores references to all $relatedObjects and
      * $namedRelatedObjectSets sets, the $object of this identity is referenced
      * in.
-     * 
+     *
      * @var SplObjectStorage(ArrayObject)
      */
     public $references;
@@ -112,9 +112,9 @@ class ezcPersistentIdentity extends ezcBaseStruct
      * $relatedObjects and $namedRelatedObjectSets. The $references object is
      * used to keep track of places where the $object is referenced (related
      * object sets of other identities).
-     * 
-     * @param object $object 
-     * @param array $relatedObjects 
+     *
+     * @param object $object
+     * @param array $relatedObjects
      * @param array $namedRelatedObjectSets
      * @param SplObjectStorage $references
      */

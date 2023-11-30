@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -29,7 +29,7 @@
  * An instance of this class is used in {@link
  * ezcPersistentSessionIdentityDecorator} to perform the internal work of
  * storing and retrieving object identities.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  */
@@ -57,14 +57,14 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * );
      * ?>
      * </code>
-     * 
+     *
      * @var array(string=>array(mixed=>ezcPersistentIdentity))
      */
     protected $identities = array();
 
     /**
      * Definition manager used by {@link ezcPersistentSession}.
-     * 
+     *
      * @var ezcPersistentDefinitionManager
      */
     protected $definitionManager;
@@ -74,8 +74,8 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      *
      * Creates a new identity map, which makes use of the given
      * $definitionManager to determine object identities and relations.
-     * 
-     * @param ezcPersistentDefinitionManager $definitionManager 
+     *
+     * @param ezcPersistentDefinitionManager $definitionManager
      */
     public function __construct( ezcPersistentDefinitionManager $definitionManager )
     {
@@ -90,7 +90,7 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * care of checking for already recorded identities of the given $object
      * itself.
      *
-     * @param ezcPersistentObject $object 
+     * @param ezcPersistentObject $object
      */
     public function setIdentity( $object )
     {
@@ -98,7 +98,7 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
         $def   = $this->definitionManager->fetchDefinition( $class );
         $state = $object->getState();
         $id    = $state[$def->idProperty->propertyName];
-        
+
         if ( !isset( $this->identities[$class] ) )
         {
             $this->identities[$class] = array();
@@ -121,9 +121,9 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      *
      * Returns the object of $class with $id, if its identity has already been
      * recorded. Otherwise null is returned.
-     * 
-     * @param string $class 
-     * @param mixed $id 
+     *
+     * @param string $class
+     * @param mixed $id
      * @return object($class)|null
      */
     public function getIdentity( $class, $id )
@@ -145,9 +145,9 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * Removes the identity of the object of $class with $id from the map and
      * deletes all references of it. If the identity does not exist, the call
      * is silently ignored.
-     * 
-     * @param string $class 
-     * @param mixed $id 
+     *
+     * @param string $class
+     * @param mixed $id
      */
     public function removeIdentity( $class, $id )
     {
@@ -184,11 +184,11 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * To avoid a call to {@link getRelatedObjects()} after this method has
      * been called, the recorded set of related objects (including potentially
      * replaced identities) is returned.
-     * 
+     *
      * @param ezcPersistentObject $sourceObject
-     * @param array(ezcPersistentObject) $relatedObjects 
-     * @param string $relatedClass 
-     * @param string $relationName 
+     * @param array(ezcPersistentObject) $relatedObjects
+     * @param string $relatedClass
+     * @param string $relationName
      * @param bool $replaceIdentities
      *
      * @return array(mixed=>object($relatedClass))
@@ -270,7 +270,7 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
             // Store reference
             $this->identities[$relatedClass][$relId]->references->attach( $relStore );
         }
-        
+
         $srcIdentity->relatedObjects[$relationStoreName] = $relStore;
 
         return $relStore->getArrayCopy();
@@ -299,10 +299,10 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      *
      * The method returns the created set of related objects to avoid another
      * call to {@link getRelatedObjectSet()} by the using objct.
-     * 
+     *
      * @param ezcPersistentObject $sourceObject
-     * @param array(ezcPersistentObject) $relatedObjects 
-     * @param string $setName 
+     * @param array(ezcPersistentObject) $relatedObjects
+     * @param string $setName
      * @param bool $replaceIdentities
      *
      * @return array(ezcPersistentObject)
@@ -376,7 +376,7 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
             // Store reference
             $this->identities[$relClass][$relId]->references->attach( $relStore );
         }
-        
+
         $srcIdentity->namedRelatedObjectSets[$setName] = $relStore;
 
         return $relStore->getArrayCopy();
@@ -398,8 +398,8 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * not determine, to which named related object sub-set the $relatedObject
      * might be added.
      *
-     * @param ezcPersistentObject $sourceObject 
-     * @param ezcPersistentObject $relatedObject 
+     * @param ezcPersistentObject $sourceObject
+     * @param ezcPersistentObject $relatedObject
      * @param string $relationName
      *
      * @throws ezcPersistentRelationNotFoundException
@@ -469,9 +469,9 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
         $this->identities[$relClass][$relId]->references->attach(
             $relStore
         );
-        
+
         // Invalidate all named sets, since they might be inconsistent now
-        $this->removeAllReferences( 
+        $this->removeAllReferences(
             $srcIdentity->namedRelatedObjectSets
         );
         $srcIdentity->namedRelatedObjectSets = array();
@@ -484,9 +484,9 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * (named and unnamed) for $sourceObject. This method (in contrast to
      * {@link addRelatedObject()}) does not invalidate named related object
      * sets, but simply removes the $relatedObject from them.
-     * 
-     * @param ezcPersistentObject $sourceObject 
-     * @param ezcPersistentObject $relatedObject 
+     *
+     * @param ezcPersistentObject $sourceObject
+     * @param ezcPersistentObject $relatedObject
      * @param string $relationName
      *
      * @throws ezcPersistentIdentityMissingException
@@ -551,9 +551,9 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * Returns the set of related objects of $relatedClass for $sourceObject.
      * This might also be an empty set (empty array). In case no related
      * objects are recorded, yet, null is returned.
-     * 
-     * @param ezcPersistentObject $sourceObject 
-     * @param string $relatedClass 
+     *
+     * @param ezcPersistentObject $sourceObject
+     * @param string $relatedClass
      * @param string $relationName
      *
      * @return array(object($relatedClass))|null
@@ -607,9 +607,9 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * Returns the named set of related objects for $sourceObject identified by
      * $setName. This might also be an empty set (empty array). In case no
      * related objects with this name are recorded, yet, null is returned.
-     * 
-     * @param ezcPersistentObject $sourceObject 
-     * @param string $setName 
+     *
+     * @param ezcPersistentObject $sourceObject
+     * @param string $setName
      * @return array(object($relatedClass))|null
      */
     public function getRelatedObjectSet( $sourceObject, $setName )
@@ -648,9 +648,9 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      *
      * Determines the unique name for relations of $relatedClass with
      * $relationName (can be null).
-     * 
-     * @param string $relatedClass 
-     * @param string $relationName 
+     *
+     * @param string $relatedClass
+     * @param string $relationName
      * @return string
      */
     protected function createRelationStoreName( $relatedClass, $relationName )
@@ -664,8 +664,8 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      *
      * Removes all references to all object $sets from all objects contained in
      * each of the $sets.
-     * 
-     * @param array(ArrayObject) $sets 
+     *
+     * @param array(ArrayObject) $sets
      * @see removeReferences()
      */
     protected function removeAllReferences( array $sets )
@@ -683,7 +683,7 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * removing all refereneces to $set from all object identities contained in
      * $set.
      *
-     * @param ArrayObject $set 
+     * @param ArrayObject $set
      */
     protected function removeReferences( ArrayObject $set )
     {
@@ -693,7 +693,7 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
             $def   = $this->definitionManager->fetchDefinition( $class );
             $state = $obj->getState();
             $id    = $state[$def->idProperty->propertyName];
-            
+
             if ( $this->identities[$class][$id]->references->contains( $set ) )
             {
                 $this->identities[$class][$id]->references->detach( $set );
@@ -708,9 +708,9 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * the $oldIdentity and replaces the references to $oldIdentity with
      * $newIdentity in them. This mechanism is used whenever an identity is to
      * be replaced by a new one.
-     * 
-     * @param ezcPersistentIdentity $oldIdentity 
-     * @param ezcPersistentIdentity $newIdentity 
+     *
+     * @param ezcPersistentIdentity $oldIdentity
+     * @param ezcPersistentIdentity $newIdentity
      */
     protected function replaceIdentityReferences( ezcPersistentIdentity $oldIdentity, ezcPersistentIdentity $newIdentity )
     {
@@ -740,8 +740,8 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
      * and removes $identity from them. This is used, if the $identity is to be
      * {@link removeIdenity()}, to ensure it does not occur in any related set
      * or named related set anymore.
-     * 
-     * @param ezcPersistentIdentity $identity 
+     *
+     * @param ezcPersistentIdentity $identity
      */
     protected function removeIdentityReferences( ezcPersistentIdentity $identity )
     {

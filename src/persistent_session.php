@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -342,7 +342,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
     /**
      * Returns a sub-select for the given $class to be used with $parentQuery.
      *
-     * This method creates an {@link ezcPersistentFindQuery} as a {@link 
+     * This method creates an {@link ezcPersistentFindQuery} as a {@link
      * ezcQuerySubSelect} for the given $class. The returned query has already
      * set aliases for the properties of $class, but (in contrast to the query
      * returned by {@link createFindQuery()}) does not have the selection of all
@@ -356,9 +356,9 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * </code>
      *
      * manually to select the fields you desire.
-     * 
-     * @param ezcPersistentFindQuery $parentQuery 
-     * @param string $class 
+     *
+     * @param ezcPersistentFindQuery $parentQuery
+     * @param string $class
      * @return ezcQuerySubSelect
      */
     public function createSubQuery( ezcPersistentFindQuery $parentQuery, $class )
@@ -632,19 +632,19 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
     /**
      * Returns if $relatedObject is related to $sourceObject.
      *
-     * Checks the relation conditions between $sourceObject and $relatedObject 
-     * and returns true, if $relatedObject is related to $sourceObject, 
+     * Checks the relation conditions between $sourceObject and $relatedObject
+     * and returns true, if $relatedObject is related to $sourceObject,
      * otherwise false. In case multiple relations are defined between the
      * classes of $sourceObject and $relatedObject, the $relationName parameter
-     * becomes mandatory. If it is not provided in this case, an {@link 
+     * becomes mandatory. If it is not provided in this case, an {@link
      * ezcPersistentUndeterministicRelationException} is thrown.
      *
-     * Note that checking relations of type {@link 
-     * ezcPersistentManyToManyRelation} will issue a database query. Other relations will 
+     * Note that checking relations of type {@link
+     * ezcPersistentManyToManyRelation} will issue a database query. Other relations will
      * not perform this.
-     * 
-     * @param ezcPersistentObject $sourceObj 
-     * @param ezcPersistentObject $relatedObj 
+     *
+     * @param ezcPersistentObject $sourceObj
+     * @param ezcPersistentObject $relatedObj
      * @param string $relationName
      * @return bool
      */
@@ -705,12 +705,12 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
     public function generateAliasMap( ezcPersistentObjectDefinition $def, $prefixTableName = true )
     {
         $table = array();
-        $table[$def->idProperty->propertyName] = ( $prefixTableName 
+        $table[$def->idProperty->propertyName] = ( $prefixTableName
             ? $this->database->quoteIdentifier( $def->table ) . '.' . $this->database->quoteIdentifier( $def->idProperty->columnName )
             : $this->database->quoteIdentifier( $def->idProperty->columnName ) );
         foreach ( $def->properties as $prop )
         {
-            $table[$prop->propertyName] = ( $prefixTableName 
+            $table[$prop->propertyName] = ( $prefixTableName
                 ? $this->database->quoteIdentifier( $def->table ) . '.' . $this->database->quoteIdentifier( $prop->columnName )
                 : $this->database->quoteIdentifier( $prop->columnName ) );
         }
@@ -731,7 +731,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
     public function getColumnsFromDefinition( ezcPersistentObjectDefinition $def, $prefixTableName = true )
     {
         $columns = array();
-        $columns[] = ( $prefixTableName 
+        $columns[] = ( $prefixTableName
             ? $this->database->quoteIdentifier( $def->table ) . '.' . $this->database->quoteIdentifier( $def->idProperty->columnName )
             : $this->database->quoteIdentifier( $def->idProperty->columnName ) );
         foreach ( $def->properties as $property )
@@ -749,8 +749,8 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * This method wraps around $object->getState() to add optional sanity
      * checks to this call, like a correct return type of getState() and
      * correct keys and values in the returned array.
-     * 
-     * @param object $object 
+     *
+     * @param object $object
      * @return array
      *
      * @access private
@@ -775,8 +775,8 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * Performs the $query, checks for errors and throws an exception in case.
      * Returns the generated statement object on success. If the $transaction
      * parameter is set to true, the query is excuted transaction save.
-     * 
-     * @param ezcQuery $q 
+     *
+     * @param ezcQuery $q
      * @param bool $transaction
      * @return PDOStatement
      *
@@ -849,7 +849,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * Property get access.
      *
      * Simply returns a given property.
-     * 
+     *
      * @throws ezcBasePropertyNotFoundException
      *         If a the value for the property propertys is not an instance of
      * @param string $propertyName The name of the property to get.
@@ -875,7 +875,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * Returns if a property exists.
      *
      * Returns true if the property exists in the {@link $properties} array
-     * (even if it is null) and false otherwise. 
+     * (even if it is null) and false otherwise.
      *
      * @param string $propertyName Option name to check for.
      * @return void
@@ -889,15 +889,15 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
     /**
      * Checks many-to-many relation between persistent objects.
      *
-     * Checks if the object defined by $relState is related to the object 
-     * defined by $srcState. Creates the corresponding SELECT query and checks 
+     * Checks if the object defined by $relState is related to the object
+     * defined by $srcState. Creates the corresponding SELECT query and checks
      * the result.
-     * 
-     * @param array $srcState 
-     * @param ezcPersistentObjectDefinition $srcDef 
-     * @param array $relState 
-     * @param ezcPersistentObjectDefinition $relDef 
-     * @param ezcPersistentRelation $relationDef 
+     *
+     * @param array $srcState
+     * @param ezcPersistentObjectDefinition $srcDef
+     * @param array $relState
+     * @param ezcPersistentObjectDefinition $relDef
+     * @param ezcPersistentRelation $relationDef
      * @return bool
      */
     private function checkComplexRelation( array $srcState, ezcPersistentObjectDefinition $srcDef, array $relState, ezcPersistentObjectDefinition $relDef, ezcPersistentRelation $relationDef )
@@ -931,17 +931,17 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
     /**
      * Checks simple relation between persistent objects.
      *
-     * Simple relations are {@link ezcPersistentOneToOneRelation}, {@link 
-     * ezcPersistentOneToManyRelation} and {@link 
-     * ezcPersistentManyToOneRelation}. Checks if the object defined by 
-     * $relState is related to the object defined by $srcState. Does not 
+     * Simple relations are {@link ezcPersistentOneToOneRelation}, {@link
+     * ezcPersistentOneToManyRelation} and {@link
+     * ezcPersistentManyToOneRelation}. Checks if the object defined by
+     * $relState is related to the object defined by $srcState. Does not
      * perform a database query for checking..
-     * 
-     * @param array $srcState 
-     * @param ezcPersistentObjectDefinition $srcDef 
-     * @param array $relState 
-     * @param ezcPersistentObjectDefinition $relDef 
-     * @param ezcPersistentRelation $relationDef 
+     *
+     * @param array $srcState
+     * @param ezcPersistentObjectDefinition $srcDef
+     * @param array $relState
+     * @param ezcPersistentObjectDefinition $relDef
+     * @param ezcPersistentRelation $relationDef
      * @return bool
      */
     private function checkSimpleRelation( array $srcState, ezcPersistentObjectDefinition $srcDef, array $relState, ezcPersistentObjectDefinition $relDef, ezcPersistentRelation $relationDef )

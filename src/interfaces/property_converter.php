@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -42,7 +42,7 @@
  * The same property converter object might be assigend to several {@link
  * ezcPersistentObjectProperty} instances to reduce the number of needed
  * objects.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  */
@@ -58,7 +58,7 @@ interface ezcPersistentPropertyConverter
      * For all implementations it should be made sure, that null is accepted
      * and handled correctly here, to indicate that the database field
      * contained a null value.
-     * 
+     *
      * @param mixed $databaseValue Column value.
      * @return mixed Property value.
      */
@@ -74,7 +74,7 @@ interface ezcPersistentPropertyConverter
      * Cases where fields may be left empty (null) should always be considered
      * in this method, The default way to handle a null value should be to
      * return null again, except if excplicitly desired differently.
-     * 
+     *
      * @param mixed $propertyValue Property value.
      * @return mixed Column value.
      */
@@ -85,8 +85,8 @@ interface ezcPersistentPropertyConverter
      *
      * This methid must be implemented to allow proper de-serialization of
      * converter objects, when they are exported using {@link var_export()}.
-     * 
-     * @param array $state 
+     *
+     * @param array $state
      * @return ezcPersistentPropertyConverter
      */
     public static function __set_state( array $state );

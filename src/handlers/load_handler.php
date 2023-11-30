@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -29,7 +29,7 @@
  *
  * An instance of this class is used internally in {@link ezcPersistentSession}
  * and takes care for loading and finding objects.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  * @access private
@@ -69,7 +69,7 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      * @param int $id
      *
      * @return object|null
-     * @apichange This method will catch only exceptions which are related to 
+     * @apichange This method will catch only exceptions which are related to
      *            the loading itself in future major releases.
      */
     public function loadIfExists( $class, $id )
@@ -105,7 +105,7 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
     public function loadIntoObject( $object, $id )
     {
         $def = $this->definitionManager->fetchDefinition(
-            get_class( $object ) 
+            get_class( $object )
         );
 
         // Prepare query.
@@ -178,7 +178,7 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
         $def     = $this->definitionManager->fetchDefinition( $class );
         $state   = $this->session->getObjectState( $object );
         $idValue = $state[$def->idProperty->propertyName];
-        
+
         if ( $idValue !== null )
         {
             $this->loadIntoObject( $object, $idValue );
@@ -491,7 +491,7 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
     /**
      * Returns a sub-select for the given $class to be used with $parentQuery.
      *
-     * This method creates an {@link ezcPersistentFindQuery} as a {@link 
+     * This method creates an {@link ezcPersistentFindQuery} as a {@link
      * ezcQuerySubSelect} for the given $class. The returned query has already
      * set aliases for the properties of $class, but (in contrast to the query
      * returned by {@link createFindQuery()}) does not have the selection of all
@@ -505,9 +505,9 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      * </code>
      *
      * manually to select the fields you desire.
-     * 
-     * @param ezcPersistentFindQuery $parentQuery 
-     * @param string $class 
+     *
+     * @param ezcPersistentFindQuery $parentQuery
+     * @param string $class
      * @return ezcQuerySubSelect
      */
     public function createSubQuery( ezcPersistentFindQuery $parentQuery, $class )
@@ -597,7 +597,7 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
     }
 
     /**
-     * Sets find query value for simple related objects. 
+     * Sets find query value for simple related objects.
      *
      * Manipulates the find $query for objects related to the object defined in
      * $objectState, defined my the relation $relation. This method is
@@ -609,11 +609,11 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      * </ul>
      * for {@link ezcPersistentManyToManyRelation} see {@link
      * createComplexRelationFindQuery()}.
-     * 
-     * @param ezcPersistentFindQuery $query 
+     *
+     * @param ezcPersistentFindQuery $query
      * @param ezcPersistentObjectDefinition $def
-     * @param ezcPersistentRelation $relation 
-     * @param array $objectState 
+     * @param ezcPersistentRelation $relation
+     * @param array $objectState
      */
     private function createSimpleRelationFindQuery(
         ezcPersistentFindQuery $query,
@@ -640,15 +640,15 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
     }
 
     /**
-     * Sets find query value for many-to-many related objects. 
+     * Sets find query value for many-to-many related objects.
      *
      * Manipulates the find $query for objects related to the object defined in
      * $objectState, defined my the relation $relation.
-     * 
-     * @param ezcPersistentFindQuery $query 
+     *
+     * @param ezcPersistentFindQuery $query
      * @param ezcPersistentObjectDefinition $def
-     * @param ezcPersistentManyToManyRelation $relation 
-     * @param array $objectState 
+     * @param ezcPersistentManyToManyRelation $relation
+     * @param array $objectState
      */
     private function createComplexRelationFindQuery(
         ezcPersistentFindQuery $query,

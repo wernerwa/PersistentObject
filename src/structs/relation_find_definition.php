@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -34,7 +34,7 @@
  * class to load. If this relation consists of a collection of named relations,
  * $relationName must be set in addition. The $furtherRelations property can be
  * used to define further relations that related to $relatedClass.
- * 
+ *
  * @package PersistentObject
  * @version //autogen//
  */
@@ -42,7 +42,7 @@ class ezcPersistentRelationFindDefinition extends ezcBaseStruct
 {
     /**
      * The related class that should be fetched.
-     * 
+     *
      * @var string
      */
     public $relatedClass;
@@ -52,35 +52,35 @@ class ezcPersistentRelationFindDefinition extends ezcBaseStruct
      *
      * Must only be not null, if relations to this class is a collection of
      * named relations.
-     * 
+     *
      * @var string
      */
     public $relationName;
 
     /**
      * Deeper relation definitions.
-     * 
+     *
      * @var array(ezcPersistentRelationFindDefinition)
      */
     public $furtherRelations = array();
 
     /**
-     * Definition object for this $relatedClass. 
+     * Definition object for this $relatedClass.
      *
      * This attribute may not be accessed by the user, but is used by {@link
      * ezcPersistentSessionIdentityDecorator} internally to transport information.
-     * 
+     *
      * @var ezcPersistentObjectDefinition
      * @access private
      */
     public $definition;
 
     /**
-     * Definition of the relation from its parent class. 
+     * Definition of the relation from its parent class.
      *
      * This attribute may not be accessed by the user, but is used by {@link
      * ezcPersistentSessionIdentityDecorator} internally to transport information.
-     * 
+     *
      * @var ezcPersistentRelation
      * @access private
      */

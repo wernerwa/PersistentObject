@@ -1,12 +1,12 @@
 <?php
 return array (
-  0 => 
+  0 =>
   array (
-    'as' => 
+    'as' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'and' => 
+        'and' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -15,7 +15,7 @@ return array (
            'autoIncrement' => false,
            'unsigned' => false,
         )),
-        'or' => 
+        'or' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -25,15 +25,15 @@ return array (
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
       ),
     )),
-    'table' => 
+    'table' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'from' => 
+        'from' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -42,7 +42,7 @@ return array (
            'autoIncrement' => true,
            'unsigned' => false,
         )),
-        'select' => 
+        'select' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -52,13 +52,13 @@ return array (
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'from' => 
+            'from' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -68,11 +68,11 @@ return array (
         )),
       ),
     )),
-    'where' => 
+    'where' =>
     ezcDbSchemaTable::__set_state(array(
-       'fields' => 
+       'fields' =>
       array (
-        'like' => 
+        'like' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -81,7 +81,7 @@ return array (
            'autoIncrement' => true,
            'unsigned' => false,
         )),
-        'update' => 
+        'update' =>
         ezcDbSchemaField::__set_state(array(
            'type' => 'integer',
            'length' => 0,
@@ -91,13 +91,13 @@ return array (
            'unsigned' => false,
         )),
       ),
-       'indexes' => 
+       'indexes' =>
       array (
-        'primary' => 
+        'primary' =>
         ezcDbSchemaIndex::__set_state(array(
-           'indexFields' => 
+           'indexFields' =>
           array (
-            'like' => 
+            'like' =>
             ezcDbSchemaIndexField::__set_state(array(
                'sorting' => NULL,
             )),
@@ -108,7 +108,7 @@ return array (
       ),
     )),
   ),
-  1 => 
+  1 =>
   array (
   ),
 ); ?>
