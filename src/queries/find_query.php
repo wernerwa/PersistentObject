@@ -57,7 +57,7 @@ class ezcPersistentFindQuery
      * @param ezcQuerySelect $query
      * @param class-string<T> $className
      */
-    public function __construct( ezcQuerySelect $query, $className )
+    public function __construct( ezcQuerySelect $query, string $className )
     {
         if ( !is_string( $className ) || $className === '' )
         {
